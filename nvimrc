@@ -95,7 +95,7 @@ set laststatus=2
 let base16colorspace=256
 
 set background=dark
-colorscheme base16-monokai
+colorscheme base16-atelier-cave
 " colorscheme wombat
 
 " Split below and right

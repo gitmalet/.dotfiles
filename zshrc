@@ -4,7 +4,7 @@ export ZSH=${HOME}/.oh-my-zsh
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/ Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="kolo"
+ZSH_THEME="lambda"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -56,7 +56,7 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/opt/android-sdk/platform-t
 # export MANPATH="/usr/local/man:$MANPATH"
 source $ZSH/oh-my-zsh.sh
 
-source /usr/lib/ruby/gems/2.3.0/gems/tmuxinator-0.7.0/completion/tmuxinator.zsh
+#source /usr/lib/ruby/gems/2.3.0/gems/tmuxinator-0.7.0/completion/tmuxinator.zsh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -93,7 +93,7 @@ export KEYTIMEOUT=1
 # BackwardSeach
 bindkey '^R' history-incremental-pattern-search-backward
 
-# export TERM="xterm-256color"
+export TERM="xterm-256color"
 setopt RM_STAR_WAIT
 setopt interactivecomments
 setopt CORRECT
@@ -103,6 +103,11 @@ export VISUAL=$EDITOR
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export ECLIPSE_HOME="/usr/lib/eclipse/"
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk"
+# Should be wayland keyboard settings
+export XKB_DEFAULT_LAYOUT=us
+export XKB_DEFAULT_VARIANT=euro
+export XKB_DEFAULT_MODEL=thinkpad
+export XKB_DEFAULT_OPTIONS=caps:escape
 
 # virtualenvwrapper
 export WORKON_HOME="~/.virtualenvs/"
@@ -112,7 +117,7 @@ source /usr/bin/virtualenvwrapper.sh
 . /usr/share/fzf/key-bindings.zsh
 
 # Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/base16-monokai.dark.sh"
+BASE16_SHELL="$HOME/.config/base16-shell/scripts/base16-atelier-cave.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
