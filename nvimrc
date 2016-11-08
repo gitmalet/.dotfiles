@@ -57,6 +57,9 @@ Plug 'benekastah/neomake'
 " Tmux integration
 Plug 'christoomey/vim-tmux-navigator'
 
+" Git integration
+Plug 'tpope/vim-fugitive'
+
 " Autocomplete and Format
 Plug 'Chiel92/vim-autoformat'
 Plug 'racer-rust/vim-racer'
@@ -64,6 +67,10 @@ Plug 'zchee/deoplete-jedi'
 Plug 'eagletmt/neco-ghc'
 Plug 'Shougo/echodoc.vim'
 Plug 'Shougo/neopairs.vim'
+Plug 'Quramy/tsuquyomi'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'lervag/vimtex'
 
 function! DoRemote(arg)
   UpdateRemotePlugins
@@ -76,8 +83,8 @@ filetype plugin indent on
 " }}}
 
 " Commons {{{
-" Make it obvious where 80 characters is
-set textwidth=80
+" Make it obvious where 100 characters is
+set textwidth=100
 set colorcolumn=+1
 
 " Remappings
@@ -90,6 +97,7 @@ syntax on
 set nu
 set hidden
 set laststatus=2
+set concealcursor=""
 
 " 256 color schemes!
 let base16colorspace=256
@@ -101,6 +109,12 @@ colorscheme base16-atelier-cave
 " Split below and right
 set splitbelow
 set splitright
+
+" The holy Tabs vs Spaces war
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set noexpandtab
 " }}}
 
 " Plugin specifics {{{
@@ -151,6 +165,10 @@ let g:autoformat_autoindent = 0
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
 
+" Keymappings for Ultisnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-N>"
+let g:UltiSnipsJumpBackwardTrigger="<c-P>"
 " }}}
 
 " NeoVim Setting {{{

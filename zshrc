@@ -82,10 +82,10 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-#alias vim="nvim"
+alias vim="nvim"
 alias performance="sudo cpupower frequency-set -g performance"
 alias powersave="sudo cpupower frequency-set -g powersave"
-
+alias ipy="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
 # Vi-Mode
 bindkey -v
 export KEYTIMEOUT=1
@@ -97,12 +97,13 @@ export TERM="xterm-256color"
 setopt RM_STAR_WAIT
 setopt interactivecomments
 setopt CORRECT
+export BROWSER="chromium"
 export EDITOR="nvim"
 export USE_EDITOR=$EDITOR
 export VISUAL=$EDITOR
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export ECLIPSE_HOME="/usr/lib/eclipse/"
-export JAVA_HOME="/usr/lib/jvm/java-8-openjdk"
+export JAVA_HOME="/usr/lib/jvm/java-7-openjdk"
 # Should be wayland keyboard settings
 export XKB_DEFAULT_LAYOUT=us
 export XKB_DEFAULT_VARIANT=euro
@@ -115,6 +116,9 @@ source /usr/bin/virtualenvwrapper.sh
 
 # fzf
 . /usr/share/fzf/key-bindings.zsh
+
+# crazy nodejs stuff, JS is shit
+alias npm-exec='PATH=$(npm bin):$PATH'
 
 # Base16 Shell
 BASE16_SHELL="$HOME/.config/base16-shell/scripts/base16-atelier-cave.sh"
