@@ -103,7 +103,7 @@ export USE_EDITOR=$EDITOR
 export VISUAL=$EDITOR
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export ECLIPSE_HOME="/usr/lib/eclipse/"
-export JAVA_HOME="/usr/lib/jvm/java-7-openjdk"
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk"
 # Should be wayland keyboard settings
 export XKB_DEFAULT_LAYOUT=us
 export XKB_DEFAULT_VARIANT=euro

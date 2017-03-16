@@ -18,6 +18,16 @@ endif
 " Get Plugins {{{
 call plug#begin('~/.config/nvim/plugged')
 
+if filereadable(expand("$HOME/.dotfiles/nvimrc-rust-plug"))
+    source $HOME/.dotfiles/nvimrc-rust-plug
+endif
+if filereadable(expand("$HOME/.dotfiles/nvimrc-haskell-plug"))
+    source $HOME/.dotfiles/nvimrc-haskell-plug
+endif
+if filereadable(expand("$HOME/.dotfiles/nvimrc-doc-plug"))
+    source $HOME/.dotfiles/nvimrc-doc-plug
+endif
+
 " Sensible
 Plug 'tpope/vim-sensible'
 
@@ -28,20 +38,9 @@ Plug 'sheerun/vim-wombat-scheme'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'ntpeters/vim-better-whitespace'
 
-" Unite and other Shougo madness
-Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-Plug 'Shougo/unite.vim'
-
 " NerdTree file browser
 Plug 'scrooloose/nerdtree'
 
-" Language and Syntax
-Plug 'vim-pandoc/vim-pandoc'
-Plug 'vim-pandoc/vim-pandoc-syntax'
-Plug 'rust-lang/rust.vim'
-Plug 'neovimhaskell/haskell-vim'
-Plug 'leafgarland/typescript-vim'
-Plug 'aklt/plantuml-syntax'
 
 " More vim commands
 Plug 'tpope/vim-repeat'
@@ -62,15 +61,12 @@ Plug 'tpope/vim-fugitive'
 
 " Autocomplete and Format
 Plug 'Chiel92/vim-autoformat'
-Plug 'racer-rust/vim-racer'
 Plug 'zchee/deoplete-jedi'
-Plug 'eagletmt/neco-ghc'
 Plug 'Shougo/echodoc.vim'
 Plug 'Shougo/neopairs.vim'
-Plug 'Quramy/tsuquyomi'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'lervag/vimtex'
+
 
 function! DoRemote(arg)
   UpdateRemotePlugins
@@ -83,8 +79,8 @@ filetype plugin indent on
 " }}}
 
 " Commons {{{
-" Make it obvious where 100 characters is
-set textwidth=100
+" Make it obvious where 80 characters is
+set textwidth=80
 set colorcolumn=+1
 
 " Remappings
@@ -118,24 +114,17 @@ set noexpandtab
 " }}}
 
 " Plugin specifics {{{
-" Unite
-if has("nvim")
-	nnoremap <leader>e :Unite -start-insert file_rec/neovim buffer<cr>
-else
-	nnoremap <leader>e :Unite file_rec/async buffer<cr>
-endif
-nnoremap <leader>/ :Unite grep:.<cr>
 
-" Racer
-let g:racer_cmd=expand("$HOME/.multirust/toolchains/nightly/cargo/bin/racer")
-let $RUST_SRC_PATH=expand("$HOME/dev/Rust/rustc-1.7.0/src/")
+if filereadable(expand("$HOME/.dotfiles/nvimrc-rust"))
+    source $HOME/.dotfiles/nvimrc-rust
+endif
+if filereadable(expand("$HOME/.dotfiles/nvimrc-doc"))
+    source $HOME/.dotfiles/nvimrc-doc
+endif
 
 " Neomake
 nnoremap <leader>c :Neomake<cr>
 autocmd! BufWritePost * Neomake
-
-" Pandoc
-let g:pandoc#spell#default_langs = ['de', 'en_us', 'en_gb']
 
 " Lightline
 let g:lightline = {
