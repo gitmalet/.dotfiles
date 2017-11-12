@@ -47,7 +47,6 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'argumentative.vim'
 Plug 'godlygeek/tabular'
 
 " Neomake for all kinds of stuff
@@ -67,6 +66,9 @@ Plug 'Shougo/neopairs.vim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
+" Syntax
+Plug 'petRUShka/vim-sage'
+Plug 'pearofducks/ansible-vim'
 
 function! DoRemote(arg)
   UpdateRemotePlugins
@@ -84,9 +86,10 @@ set textwidth=80
 set colorcolumn=+1
 
 " Remappings
-:let mapleader = ","
+:let mapleader = "\<space>"
 nmap <leader>- <C-w>s
 nmap <leader>\| <C-w>v
+:imap <leader><leader> <Esc>
 
 " Looks again
 syntax on
