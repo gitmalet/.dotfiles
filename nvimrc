@@ -18,16 +18,6 @@ endif
 " Get Plugins {{{
 call plug#begin('~/.config/nvim/plugged')
 
-if filereadable(expand("$HOME/.dotfiles/nvimrc-rust-plug"))
-    source $HOME/.dotfiles/nvimrc-rust-plug
-endif
-if filereadable(expand("$HOME/.dotfiles/nvimrc-haskell-plug"))
-    source $HOME/.dotfiles/nvimrc-haskell-plug
-endif
-if filereadable(expand("$HOME/.dotfiles/nvimrc-doc-plug"))
-    source $HOME/.dotfiles/nvimrc-doc-plug
-endif
-
 " Sensible
 Plug 'tpope/vim-sensible'
 
@@ -40,7 +30,6 @@ Plug 'ntpeters/vim-better-whitespace'
 
 " NerdTree file browser
 Plug 'scrooloose/nerdtree'
-
 
 " More vim commands
 Plug 'tpope/vim-repeat'
@@ -117,13 +106,6 @@ set noexpandtab
 " }}}
 
 " Plugin specifics {{{
-
-if filereadable(expand("$HOME/.dotfiles/nvimrc-rust"))
-    source $HOME/.dotfiles/nvimrc-rust
-endif
-if filereadable(expand("$HOME/.dotfiles/nvimrc-doc"))
-    source $HOME/.dotfiles/nvimrc-doc
-endif
 
 " Neomake
 nnoremap <leader>c :Neomake<cr>

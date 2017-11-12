@@ -1,2 +1,0 @@
-" Pandoc
-let g:pandoc#spell#default_langs = ['de', 'en_us', 'en_gb']
