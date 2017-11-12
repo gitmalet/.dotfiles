@@ -1,7 +1,0 @@
-R_HOME_USER = ${HOME}/dev/R/
-R_HISTFILE = ${HOME}/dev/R/hist.Rhistory
-R_PROFILE_USER = ${HOME}/.r/Rprofile.r
-R_LIBS_USER = ${HOME}/.r/.library
-#R_DEFAULT_PACKAGES = 'datasets,utils,grDevices,graphics,stats,methods,rJava,colorout'    # load some default packages at start up
-#MYSQL_HOME = /var/lib/mysql
-
