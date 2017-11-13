@@ -1,0 +1,15 @@
+[submodule "fzf"]
+	path = fzf
+	url = https://github.com/junegunn/fzf.git
+[submodule "zsh-syntax-highlighting"]
+	path = zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule "dotbot"]
+	path = dotbot
+	url = https://github.com/anishathalye/dotbot
+[submodule "purer"]
+	path = purer
+	url = https://github.com/DFurnes/purer.git
+[submodule "base16-shell"]
+	path = base16-shell
+	url = https://github.com/chriskempson/base16-shell.git
