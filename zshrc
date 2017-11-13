@@ -27,18 +27,15 @@ export XKB_DEFAULT_OPTIONS=caps:escape
 export WORKON_HOME="~/.virtualenvs/"
 source /usr/bin/virtualenvwrapper.sh
 
-# Custom fpath
-fpath=( "$HOME/.zfunctions" $fpath )
-
 # Base16 Shell
 BASE16_SHELL="$HOME/.config/base16-shell/scripts/base16-atelier-cave.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
-# Purer Theme
-autoload -U promptinit; promptinit
-prompt pure
+# Geometry Theme
+[ -f ~/.geometry/geometry.zsh ] && source ~/.geometry/geometry.zsh
 
 # fzf Completion
-
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# zsh-syntax-highlighting
+source ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

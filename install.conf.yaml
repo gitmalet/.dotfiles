@@ -6,16 +6,15 @@
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
-    - [mkdir -p ~/.zfunctions]
     - [mkdir -p ~/.config/base16-shell]
 
 - link:
     ~/.tmux.conf: tmux.conf
     ~/.config/nvim/init.vim: nvimrc
     ~/.config/base16-shell/scripts: base16-shell/scripts
-    ~/.zfunctions/prompt_pure_setup: purer/pure.zsh
-    ~/.zfunctions/async: purer/async.zsh
+    ~/.geometry: geometry
     ~/.fzf: fzf
+    ~/.zsh-syntax-highlighting: zsh-syntax-highlighting
 
 - shell:
     - [~/.fzf/install --all, Installing FZF]
