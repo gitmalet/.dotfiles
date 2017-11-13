@@ -15,6 +15,7 @@
     ~/.geometry: geometry
     ~/.fzf: fzf
     ~/.zsh-syntax-highlighting: zsh-syntax-highlighting
+    ~/.radare2rc: radare2rc
 
 - shell:
     - [~/.fzf/install --all, Installing FZF]
