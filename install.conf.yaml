@@ -6,6 +6,7 @@
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
+    - [mkdir -p ~/.config/nvim]
     - [mkdir -p ~/.config/base16-shell]
 
 - link:
@@ -19,3 +20,4 @@
 
 - shell:
     - [~/.fzf/install --all, Installing FZF]
+    - [chsh zsh, Changing login shell do zsh]
