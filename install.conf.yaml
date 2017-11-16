@@ -20,4 +20,4 @@
 
 - shell:
     - [~/.fzf/install --all, Installing FZF]
-    - [chsh zsh, Changing login shell do zsh]
+    - [chsh -s /bin/zsh, Changing login shell do zsh]
