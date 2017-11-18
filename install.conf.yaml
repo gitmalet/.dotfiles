@@ -18,7 +18,7 @@
     ~/.zsh-syntax-highlighting: zsh-syntax-highlighting
     ~/.radare2rc: radare2rc
     ~/.gdbinit: gdbinit
-    ~/.gdbinit-gef: gef/gef.py
+    ~/.gdbinit-gef.py: gef/gef.py
 
 - shell:
     - [~/.fzf/install --all, Installing FZF]
