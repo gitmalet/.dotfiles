@@ -13,3 +13,6 @@
 [submodule "geometry"]
 	path = geometry
 	url = https://github.com/geometry-zsh/geometry.git
+[submodule "gef"]
+	path = gef
+	url = https://github.com/hugsy/gef.git
