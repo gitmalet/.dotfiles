@@ -17,6 +17,7 @@
     ~/.fzf: fzf
     ~/.zsh-syntax-highlighting: zsh-syntax-highlighting
     ~/.radare2rc: radare2rc
+    ~/.gdbinit: gdbinit
 
 - shell:
     - [~/.fzf/install --all, Installing FZF]
