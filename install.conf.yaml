@@ -10,16 +10,16 @@
     - [mkdir -p ~/.config/base16-shell]
 
 - link:
-    ~/.tmux.conf: tmux.conf
+    ~/.zshrc: zshrc
     ~/.config/nvim/init.vim: nvimrc
     ~/.config/base16-shell/scripts: base16-shell/scripts
     ~/.geometry: geometry
     ~/.fzf: fzf
     ~/.zsh-syntax-highlighting: zsh-syntax-highlighting
+    ~/.tmux.conf: tmux.conf
     ~/.radare2rc: radare2rc
     ~/.gdbinit: gdbinit
     ~/.gdbinit-gef.py: gef/gef.py
 
 - shell:
     - [~/.fzf/install --all, Installing FZF]
-    - [chsh -s /bin/zsh, Changing login shell do zsh]
