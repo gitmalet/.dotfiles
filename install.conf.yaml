@@ -21,7 +21,7 @@
     ~/.radare2rc: radare2rc
     ~/.gdbinit: gdbinit
     ~/.gdbinit-gef.py: gef/gef.py
-    ~/.config/sway/config: i3.conf
+    ~/.config/sway/config: sway
 
 - shell:
     - [~/.fzf/install --all, Installing FZF]
