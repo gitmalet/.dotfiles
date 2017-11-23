@@ -8,6 +8,7 @@
     - [git submodule update --init --recursive, Installing submodules]
     - [mkdir -p ~/.config/nvim]
     - [mkdir -p ~/.config/base16-shell]
+    - [mkdir -p ~/.config/sway]
 
 - link:
     ~/.zshrc: zshrc
@@ -20,6 +21,7 @@
     ~/.radare2rc: radare2rc
     ~/.gdbinit: gdbinit
     ~/.gdbinit-gef.py: gef/gef.py
+    ~/.config/sway/config: i3.conf
 
 - shell:
     - [~/.fzf/install --all, Installing FZF]
