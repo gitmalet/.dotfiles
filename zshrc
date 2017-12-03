@@ -42,13 +42,14 @@ BASE16_SHELL="$HOME/.config/base16-shell/scripts/base16-atelier-cave.sh"
 # Geometry Theme
 GEOMETRY_SYMBOL_PROMPT="❭"				# default prompt symbol
 GEOMETRY_SYMBOL_RPROMPT="❵"				# multiline prompts
-GEOMETRY_SYMBOL_EXIT_VALUE="❌"			# displayed when exit != 0
+GEOMETRY_SYMBOL_EXIT_VALUE="$?"			# displayed when exit != 0
 GEOMETRY_SYMBOL_ROOT="❫"				# when logged in user is root
 GEOMETRY_COLOR_EXIT_VALUE="red"			# prompt symbol color when exit != 0
 GEOMETRY_COLOR_PROMPT="magenta"			# prompt symbol color
 GEOMETRY_COLOR_ROOT="grey"				# root prompt symbol color
 GEOMETRY_COLOR_DIR="magenta"			# current directory color
 GEOMETRY_PROMPT_PREFIX=""				# prefix prompt with nothing
+GEOMETRY_PROMPT_PLUGINS=(virtualenv exec_time jobs git )
 [ -f ~/.geometry/geometry.zsh ] && source ~/.geometry/geometry.zsh
 
 # fzf Completion
