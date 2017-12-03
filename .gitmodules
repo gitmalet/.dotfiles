@@ -16,3 +16,6 @@
 [submodule "gef"]
 	path = gef
 	url = https://github.com/hugsy/gef.git
+[submodule "base16-termite"]
+	path = base16-termite
+	url = https://github.com/khamer/base16-termite.git

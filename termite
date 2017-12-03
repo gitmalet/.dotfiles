@@ -32,35 +32,53 @@ filter_unmatched_urls = true
 #modify_other_keys = false
 
 [colors]
-#cursor = #dcdccc
-#cursor_foreground = #dcdccc
-foreground = #dcdccc
-foreground_bold = #ffffff
-background = #3f3f3f
+# Base16 Atelier Heath
+# Author: Bram de Haan (http://atelierbramdehaan.nl)
 
-# 20% background transparency (requires a compositor)
-#background = rgba(63, 63, 63, 0.8)
+foreground      = #ab9bab
+foreground_bold = #d8cad8
+cursor          = #d8cad8
+background      = #1b181b
 
-# if unset, will reverse foreground and background
-highlight = #2f2f2f
+# 16 color space
 
-# colors from color0 to color254 can be set
-color0 = #3f3f3f
-color1 = #705050
-color2 = #60b48a
-color3 = #dfaf8f
-color4 = #506070
-color5 = #dc8cc3
-color6 = #8cd0d3
-color7 = #dcdccc
-color8 = #709080
-color9 = #dca3a3
-color10 = #c3bf9f
-color11 = #f0dfaf
-color12 = #94bff3
-color13 = #ec93d3
-color14 = #93e0e3
-color15 = #ffffff
+# Black, Gray, Silver, White
+color0  = #1b181b
+color8  = #776977
+color7  = #ab9bab
+color15 = #f7f3f7
+
+# Red
+color1  = #ca402b
+color9  = #ca402b
+
+# Green
+color2  = #918b3b
+color10 = #918b3b
+
+# Yellow
+color3  = #bb8a35
+color11 = #bb8a35
+
+# Blue
+color4  = #516aec
+color12 = #516aec
+
+# Purple
+color5  = #7b59c0
+color13 = #7b59c0
+
+# Teal
+color6  = #159393
+color14 = #159393
+
+# Extra colors
+color16 = #a65926
+color17 = #cc33cc
+color18 = #292329
+color19 = #695d69
+color20 = #9e8f9e
+color21 = #d8cad8
 
 [hints]
 font = Source Code Pro 10

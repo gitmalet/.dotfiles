@@ -8,6 +8,7 @@
     - [git submodule update --init --recursive, Installing submodules]
     - [mkdir -p ~/.config/nvim]
     - [mkdir -p ~/.config/base16-shell]
+    - [mkdir -p ~/.config/base16-termite]
     - [mkdir -p ~/.config/sway]
     - [mkdir -p ~/.config/termite]
 
@@ -15,6 +16,7 @@
     ~/.zshrc: zshrc
     ~/.config/nvim/init.vim: nvimrc
     ~/.config/base16-shell/scripts: base16-shell/scripts
+    ~/.config/base16-termite/themes: base16-termite/themes
     ~/.geometry: geometry
     ~/.fzf: fzf
     ~/.zsh-syntax-highlighting: zsh-syntax-highlighting

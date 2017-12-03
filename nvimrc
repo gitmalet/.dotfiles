@@ -91,7 +91,7 @@ set concealcursor=""
 let base16colorspace=256
 
 set background=dark
-colorscheme base16-atelier-cave
+colorscheme base16-atelier-heath
 " colorscheme wombat
 
 " Split below and right

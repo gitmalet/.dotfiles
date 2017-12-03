@@ -182,14 +182,28 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+# Colors
+set $base00 #1b181b
+set $base01 #292329
+set $base02 #695d69
+set $base03 #776977
+set $base04 #9e8f9e
+set $base05 #ab9bab
+set $base06 #d8cad8
+set $base07 #f7f3f7
+set $base08 #ca402b
+set $base09 #a65926
+set $base0A #bb8a35
+set $base0B #918b3b
+set $base0C #159393
+set $base0D #516aec
+set $base0E #7b59c0
+set $base0F #cc33cc
+
 #
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
-set $color_black #19171c
-set $color_white #8b8792
-set $color_bright_white #efecf4
-set $color_magenta #955ae7
 
 bar {
     position top
@@ -197,21 +211,21 @@ bar {
 
     colors {
 
-		background $color_black
-		statusline $color_white
+		background $base00
+		statusline $base05
 
-		focused_workspace $color_magenta $color_magenta $color_bright_white
-		active_workspace $color_magenta $color_magenta $color_bright_white
-		inactive_workspace $color_black $color_black $color_white
-		urgent_workspace $color_bright_white $color_magenta $color_bright_white
+		focused_workspace $base0E $base0E $base07
+		active_workspace $base0E $base0E $base07
+		inactive_workspace $base00 $base00 $base05
+		urgent_workspace $base07 $base0E $base07
     }
 }
 
 # Theme
-new_window normal 1
-new_float normal
+new_window none
+new_float pixel
 
-client.focused $color_magenta $color_magenta $color_black $color_magenta $color_magenta
+client.focused $base0E $base0E $base00 $base0E $base0E
 
 # Autostart
 
