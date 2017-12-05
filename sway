@@ -222,8 +222,7 @@ bar {
 }
 
 # Theme
-new_window none
-new_float pixel
+default_border none
 
 client.focused $base0E $base0E $base00 $base0E $base0E
 
