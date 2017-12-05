@@ -45,10 +45,11 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
-
 " Languages
-Plug 'pearofducks/ansible-vim'
+Plug 'Shougo/neco-syntax'
 Plug 'zchee/deoplete-jedi'
+Plug 'pearofducks/ansible-vim'
+Plug 'lervag/vimtex'
 
 call plug#end()
 filetype plugin indent on
