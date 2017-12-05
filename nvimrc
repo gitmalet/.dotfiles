@@ -34,16 +34,16 @@ Plug 'ntpeters/vim-better-whitespace'
 " Plug 'tpope/vim-commentary'
 
 " Neomake for all kinds of stuff
-Plug 'benekastah/neomake'
 
 " Autocomplete and Format
 if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
+	Plug 'Shougo/deoplete.nvim'
+	Plug 'roxma/nvim-yarp'
+	Plug 'roxma/vim-hug-neovim-rpc'
 endif
+Plug 'w0rp/ale'
 
 " Languages
 Plug 'Shougo/neco-syntax'
