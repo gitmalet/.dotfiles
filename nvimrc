@@ -24,46 +24,31 @@ Plug 'tpope/vim-sensible'
 " Looks
 Plug 'itchyny/lightline.vim'
 Plug 'chriskempson/base16-vim'
-Plug 'sheerun/vim-wombat-scheme'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'ntpeters/vim-better-whitespace'
 
-" NerdTree file browser
-Plug 'scrooloose/nerdtree'
-
 " More vim commands
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'godlygeek/tabular'
+" Not used at the moment
+" Plug 'tpope/vim-repeat'
+" Plug 'tpope/vim-surround'
+" Plug 'tpope/vim-commentary'
 
 " Neomake for all kinds of stuff
 Plug 'benekastah/neomake'
 
-" Tmux integration
-Plug 'christoomey/vim-tmux-navigator'
-
-" Git integration
-Plug 'tpope/vim-fugitive'
-
 " Autocomplete and Format
-Plug 'Chiel92/vim-autoformat'
-Plug 'zchee/deoplete-jedi'
-Plug 'Shougo/echodoc.vim'
-Plug 'Shougo/neopairs.vim'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
 
-" Syntax
-Plug 'petRUShka/vim-sage'
+
+" Languages
 Plug 'pearofducks/ansible-vim'
-
-function! DoRemote(arg)
-  UpdateRemotePlugins
-endfunction
-Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
-
+Plug 'zchee/deoplete-jedi'
 
 call plug#end()
 filetype plugin indent on
@@ -78,7 +63,6 @@ set colorcolumn=+1
 :let mapleader = "\<space>"
 nmap <leader>- <C-w>s
 nmap <leader>\| <C-w>v
-:imap <leader><leader> <Esc>
 
 " Looks again
 syntax on
@@ -86,13 +70,6 @@ set nu
 set hidden
 set laststatus=2
 set concealcursor=""
-
-" 256 color schemes!
-let base16colorspace=256
-
-set background=dark
-colorscheme base16-atelier-heath
-" colorscheme wombat
 
 " Split below and right
 set splitbelow
@@ -106,43 +83,19 @@ set noexpandtab
 " }}}
 
 " Plugin specifics {{{
+" Base16
+let base16colorspace=256
+
+set background=dark
+colorscheme base16-atelier-heath
 
 " Neomake
 nnoremap <leader>c :Neomake<cr>
 autocmd! BufWritePost * Neomake
 
-" Lightline
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ }
-
-" Nerdtree
-let g:NERDTreeWinSize = 25
-
-" Vim-Tmux-Navigator
-let g:tmux_navigator_no_mappings = 1
-
-nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
-let g:tmux_navigator_save_on_switch = 1
-
-" Autoformat
-nmap <Leader>f :Autoformat<CR>
-
-if !exists("b:disable_autoformat")
-	au BufWrite * :Autoformat
-endif
-let g:autoformat_autoindent = 0
-
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
 
-" Keymappings for Ultisnips
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-N>"
-let g:UltiSnipsJumpBackwardTrigger="<c-P>"
 " }}}
 
 " NeoVim Setting {{{
