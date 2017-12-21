@@ -13,8 +13,10 @@
     - [mkdir -p ~/.config/termite]
 
 - link:
-    ~/.zshrc: zshrc
+    ~/.zshrc: grml-etc-core/etc/zsh/zshrc
+    ~/.zshrc.local: zshrc
     ~/.config/nvim/init.vim: nvimrc
+    ~/.config/nvim/ftplugin: ftplugin
     ~/.config/base16-shell/scripts: base16-shell/scripts
     ~/.config/base16-termite/themes: base16-termite/themes
     ~/.geometry: geometry

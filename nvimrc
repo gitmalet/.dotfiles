@@ -31,14 +31,15 @@ Plug 'ntpeters/vim-better-whitespace'
 " Not used at the moment
 " Plug 'tpope/vim-repeat'
 " Plug 'tpope/vim-surround'
-" Plug 'tpope/vim-commentary'
-
-" Neomake for all kinds of stuff
+Plug 'tpope/vim-commentary'
 
 " Autocomplete and Format
 if has('nvim')
+	Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+	Plug 'chemzqm/denite-extra'
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
+	Plug 'Shougo/unite.vim'
 	Plug 'Shougo/deoplete.nvim'
 	Plug 'roxma/nvim-yarp'
 	Plug 'roxma/vim-hug-neovim-rpc'
@@ -47,10 +48,12 @@ Plug 'w0rp/ale'
 
 " Languages
 Plug 'Shougo/neco-syntax'
-Plug 'zchee/deoplete-jedi'
+Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 Plug 'pearofducks/ansible-vim'
-Plug 'lervag/vimtex'
+Plug 'lervag/vimtex', { 'for': ['tex', 'plaintex'] }
 
+" Transparent GPG file handling
+Plug 'jamessan/vim-gnupg'
 call plug#end()
 filetype plugin indent on
 " }}}
@@ -89,10 +92,6 @@ let base16colorspace=256
 
 set background=dark
 colorscheme base16-atelier-heath
-
-" Neomake
-nnoremap <leader>c :Neomake<cr>
-autocmd! BufWritePost * Neomake
 
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1

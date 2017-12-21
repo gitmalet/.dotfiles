@@ -54,6 +54,9 @@ font $font 10
     # start your browser
     bindsym $mod+b exec $browser
 
+    # lock screen
+    bindsym $mod+q exec swaylock
+
     # kill focused window
     bindsym $mod+Shift+q kill
 
