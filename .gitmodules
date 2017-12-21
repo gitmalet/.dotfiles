@@ -19,3 +19,6 @@
 [submodule "base16-termite"]
 	path = base16-termite
 	url = https://github.com/khamer/base16-termite.git
+[submodule "grml-etc-core"]
+	path = grml-etc-core
+	url = https://github.com/grml/grml-etc-core.git
