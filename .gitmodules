@@ -19,3 +19,6 @@
 [submodule "grml-etc-core"]
 	path = grml-etc-core
 	url = https://github.com/grml/grml-etc-core.git
+[submodule "pure"]
+	path = pure
+	url = https://github.com/sindresorhus/pure.git

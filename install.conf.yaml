@@ -6,6 +6,7 @@
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
+    - [mkdir -p ~/.zfunctions]
     - [mkdir -p ~/.config/nvim]
     - [mkdir -p ~/.config/base16-shell]
     - [mkdir -p ~/.config/base16-termite]
@@ -15,11 +16,12 @@
 - link:
     ~/.zshrc: grml-etc-core/etc/zsh/zshrc
     ~/.zshrc.local: zshrc
+    ~/.zfunctions/prompt_pure_setup: pure/pure.zsh
+    ~/.zfunctions/async: pure/async.zsh
     ~/.config/nvim/init.vim: nvimrc
     ~/.config/nvim/ftplugin: ftplugin
     ~/.config/base16-shell/scripts: base16-shell/scripts
     ~/.config/base16-termite/themes: base16-termite/themes
-    ~/.geometry: geometry
     ~/.fzf: fzf
     ~/.zsh-syntax-highlighting: zsh-syntax-highlighting
     ~/.tmux.conf: tmux.conf
@@ -30,4 +32,4 @@
     ~/.config/termite/config: termite
 
 - shell:
-    - [~/.fzf/install --all, Installing FZF]
+    - [~/.fzf/install --all --no-update-rc, Installing FZF]
