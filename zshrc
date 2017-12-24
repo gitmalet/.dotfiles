@@ -39,7 +39,7 @@ BASE16_SHELL="$HOME/.config/base16-shell/scripts/base16-atelier-heath.sh"
 
 # Pure zsh theme
 autoload -U promptinit; promptinit
-prompt pure
+prompt lean
 
 # fzf Completion
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
