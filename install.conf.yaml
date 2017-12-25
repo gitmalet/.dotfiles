@@ -11,6 +11,7 @@
     - [mkdir -p ~/.config/base16-shell]
     - [mkdir -p ~/.config/base16-termite]
     - [mkdir -p ~/.config/sway]
+    - [mkdir -p ~/.config/i3]
     - [mkdir -p ~/.config/termite]
 
 - link:
@@ -28,6 +29,7 @@
     ~/.gdbinit: gdbinit
     ~/.gdbinit-gef.py: gef/gef.py
     ~/.config/sway/config: sway
+    ~/.config/i3/config: sway
     ~/.config/termite/config: termite
 
 - shell:
