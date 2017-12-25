@@ -29,7 +29,7 @@
     ~/.gdbinit: gdbinit
     ~/.gdbinit-gef.py: gef/gef.py
     ~/.config/sway/config: sway
-    ~/.config/i3/config: sway
+    ~/.config/i3/config: i3.conf
     ~/.config/termite/config: termite
 
 - shell:
