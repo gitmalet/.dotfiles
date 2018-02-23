@@ -1,3 +1,3 @@
 set disassembly-flavor intel
 
-source ${HOME}/.gdbinit-gef.py
+source ~/.gdbinit-gef.py
