@@ -47,10 +47,22 @@ endif
 Plug 'w0rp/ale'
 
 " Languages
+"
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 Plug 'Shougo/neco-syntax'
-Plug 'zchee/deoplete-jedi', { 'for': 'python' }
-Plug 'pearofducks/ansible-vim'
+" Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+" Plug 'pearofducks/ansible-vim'
 Plug 'lervag/vimtex', { 'for': ['tex', 'plaintex'] }
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
+
+" Prose
+Plug 'dbmrq/vim-ditto', { 'for': ['text', 'tex', 'plaintex', 'markdown'] }
+Plug 'reedes/vim-wordy', { 'for': ['text', 'tex', 'plaintex', 'markdown'] }
+Plug 'reedes/vim-lexical', { 'for': ['text', 'tex', 'plaintex', 'markdown'] }
 
 " Transparent GPG file handling
 Plug 'jamessan/vim-gnupg'
@@ -95,7 +107,31 @@ colorscheme base16-atelier-heath
 
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
+" and also close the preview window automatically
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
+" Prose
+augroup lexical
+	autocmd!
+	autocmd FileType markdown,mkd,text,tex,plaintex call lexical#init()
+augroup END
+
+au FileType markdown,mkd,text,tex,plaintex DittoOn
+
+" LanguageServers
+" Required for operations modifying multiple buffers like rename.
+set hidden
+
+let g:LanguageClient_serverCommands = {
+    \ 'c': ['cquery', 'clangd'],
+    \ 'cpp': ['clangd'],
+    \ 'python': ['pyls'],
+    \ }
+
+nnoremap <silent> <leader>i :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> <leader>d :call LanguageClient_textDocument_definition()<CR>
+nnoremap <silent> <leader>r :call LanguageClient_textDocument_rename()<CR>
+nnoremap <silent> <leader>f :call LanguageClient_textDocument_rangeFormatting()<CR>
 " }}}
 
 " NeoVim Setting {{{
