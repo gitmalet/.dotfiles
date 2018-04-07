@@ -34,7 +34,7 @@ export WORKON_HOME="~/.virtualenvs/"
 [[ -s /usr/bin/virtualenvwrapper.sh ]] && source /usr/bin/virtualenvwrapper.sh
 
 # Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/scripts/base16-atelier-heath.sh"
+BASE16_SHELL="$HOME/.config/base16-shell/scripts/base16-dracula.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
 # Pure zsh theme
