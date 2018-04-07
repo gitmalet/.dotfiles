@@ -20,6 +20,7 @@ call plug#begin('~/.config/nvim/plugged')
 
 " Sensible
 Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-sleuth'
 
 " Looks
 Plug 'itchyny/lightline.vim'
@@ -103,7 +104,7 @@ set noexpandtab
 let base16colorspace=256
 
 set background=dark
-colorscheme base16-atelier-heath
+colorscheme base16-dracula
 
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
@@ -124,14 +125,20 @@ set hidden
 
 let g:LanguageClient_serverCommands = {
     \ 'c': ['cquery', 'clangd'],
-    \ 'cpp': ['clangd'],
+    \ 'cpp': ['cquery', 'clangd'],
     \ 'python': ['pyls'],
     \ }
 
-nnoremap <silent> <leader>i :call LanguageClient_textDocument_hover()<CR>
-nnoremap <silent> <leader>d :call LanguageClient_textDocument_definition()<CR>
-nnoremap <silent> <leader>r :call LanguageClient_textDocument_rename()<CR>
-nnoremap <silent> <leader>f :call LanguageClient_textDocument_rangeFormatting()<CR>
+nnoremap <silent> <leader>li :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> <leader>ld :call LanguageClient_textDocument_definition()<CR>
+nnoremap <silent> <leader>lr :call LanguageClient_textDocument_rename()<CR>
+nnoremap <silent> <leader>lf :call LanguageClient_textDocument_rangeFormatting()<CR>
+
+" Denite
+if has('nvim')
+nnoremap <silent> <leader>ob :Denite buffer<CR>
+nnoremap <silent> <leader>of :Denite file<CR>
+endif
 " }}}
 
 " NeoVim Setting {{{
