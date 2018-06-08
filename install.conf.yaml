@@ -6,13 +6,16 @@
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
+    - [git pull --recurse-submodules, Pulling submodules]
+    - [git submodule update --recursive, Activate newest submodules]
     - [mkdir -p ~/.zfunctions]
     - [mkdir -p ~/.config/nvim]
-    - [mkdir -p ~/.config/base16-shell]
-    - [mkdir -p ~/.config/base16-termite]
+    - [mkdir -p ~/.mutt]
+    - [mkdir -p ~/.config/base16-sway]
     - [mkdir -p ~/.config/sway]
     - [mkdir -p ~/.config/i3]
     - [mkdir -p ~/.config/termite]
+    - [mkdir -p ~/.config/systemd/user]
 
 - link:
     ~/.zshrc: grml-etc-core/etc/zsh/zshrc
@@ -20,17 +23,22 @@
     ~/.zfunctions/prompt_lean_setup: lean/lean.plugin.zsh
     ~/.config/nvim/init.vim: nvimrc
     ~/.config/nvim/ftplugin: ftplugin
-    ~/.config/base16-shell/scripts: base16-shell/scripts
-    ~/.config/base16-termite/themes: base16-termite/themes
+    ~/.config/base16-shell: base16-shell
+    ~/.config/base16-termite: base16-termite
     ~/.fzf: fzf
     ~/.zsh-syntax-highlighting: zsh-syntax-highlighting
     ~/.tmux.conf: tmux.conf
+    ~/.muttrc: muttrc
+    ~/.mutt/vim-keys.rc: mutt-vim-keys.rc
+    ~/.mutt/colors.rc: mutt-colors.rc
     ~/.radare2rc: radare2rc
     ~/.gdbinit: gdbinit
     ~/.gdbinit-gef.py: gef/gef.py
     ~/.config/sway/config: sway
+    ~/.config/sway/themes: base16-i3/colors
     ~/.config/i3/config: i3.conf
     ~/.config/termite/config: termite
+    ~/.config/systemd/user/emacs.service: emacs.service
 
 - shell:
     - [~/.fzf/install --all --no-update-rc, Installing FZF]

@@ -22,3 +22,6 @@
 [submodule "lean"]
 	path = lean
 	url = https://github.com/miekg/lean.git
+[submodule "base16-i3"]
+	path = base16-i3
+	url = https://github.com/khamer/base16-i3.git

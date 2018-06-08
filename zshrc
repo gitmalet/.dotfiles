@@ -1,7 +1,7 @@
 # User configuration
 
 export FPATH="${FPATH}:${HOME}/.zfunctions"
-export PATH="${HOME}/.bin:${PATH}"
+export PATH="${HOME}/.bin:${HOME}/.local/bin:${PATH}"
 
 # Vi-Mode
 bindkey -v
@@ -10,6 +10,8 @@ export KEYTIMEOUT=1
 alias vim="nvim"
 alias o="xdg-open"
 alias ipy="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
+alias emacs="emacsclient -nc"
+alias mutt="neomutt"
 
 # BackwardSeach
 bindkey '^R' history-incremental-pattern-search-backward
@@ -29,14 +31,11 @@ export XKB_DEFAULT_MODEL=thinkpad
 export XKB_DEFAULT_OPTIONS=caps:escape
 export _JAVA_AWT_WM_NONREPARENTING=1
 
-# virtualenvwrapper
-export WORKON_HOME="~/.virtualenvs/"
-[[ -s /usr/bin/virtualenvwrapper.sh ]] && source /usr/bin/virtualenvwrapper.sh
-
 # Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/scripts/base16-dracula.sh"
-[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
-
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        eval "$("$BASE16_SHELL/profile_helper.sh")"
 # Pure zsh theme
 autoload -U promptinit; promptinit
 prompt lean

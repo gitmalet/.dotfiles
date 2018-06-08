@@ -54,16 +54,19 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'do': 'bash install.sh',
     \ }
 Plug 'Shougo/neco-syntax'
-" Plug 'zchee/deoplete-jedi', { 'for': 'python' }
-" Plug 'pearofducks/ansible-vim'
 Plug 'lervag/vimtex', { 'for': ['tex', 'plaintex'] }
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'bohlender/vim-smt2'
 
 " Prose
 Plug 'dbmrq/vim-ditto', { 'for': ['text', 'tex', 'plaintex', 'markdown'] }
 Plug 'reedes/vim-wordy', { 'for': ['text', 'tex', 'plaintex', 'markdown'] }
 Plug 'reedes/vim-lexical', { 'for': ['text', 'tex', 'plaintex', 'markdown'] }
+Plug 'reedes/vim-pencil'
+
+" Git
+Plug 'tpope/vim-fugitive'
 
 " Transparent GPG file handling
 Plug 'jamessan/vim-gnupg'
@@ -101,10 +104,10 @@ set noexpandtab
 
 " Plugin specifics {{{
 " Base16
-let base16colorspace=256
-
-set background=dark
-colorscheme base16-dracula
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
@@ -112,12 +115,17 @@ let g:deoplete#enable_at_startup = 1
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " Prose
-augroup lexical
-	autocmd!
-	autocmd FileType markdown,mkd,text,tex,plaintex call lexical#init()
-augroup END
+" augroup lexical
+" 	autocmd!
+" 	autocmd FileType markdown,mkd,text,tex,plaintex call lexical#init()
+" augroup END
 
-au FileType markdown,mkd,text,tex,plaintex DittoOn
+" au FileType markdown,mkd,text,tex,plaintex DittoOn
+
+" Ale
+" let g:ale_linters = {
+" \   'haskell': [],
+" \}
 
 " LanguageServers
 " Required for operations modifying multiple buffers like rename.
@@ -127,8 +135,10 @@ let g:LanguageClient_serverCommands = {
     \ 'c': ['cquery', 'clangd'],
     \ 'cpp': ['cquery', 'clangd'],
     \ 'python': ['pyls'],
+    \ 'haskell': ['hie', '--lsp'],
     \ }
 
+nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
 nnoremap <silent> <leader>li :call LanguageClient_textDocument_hover()<CR>
 nnoremap <silent> <leader>ld :call LanguageClient_textDocument_definition()<CR>
 nnoremap <silent> <leader>lr :call LanguageClient_textDocument_rename()<CR>
