@@ -60,10 +60,11 @@ Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'bohlender/vim-smt2'
 
 " Prose
-Plug 'dbmrq/vim-ditto', { 'for': ['text', 'tex', 'plaintex', 'markdown'] }
-Plug 'reedes/vim-wordy', { 'for': ['text', 'tex', 'plaintex', 'markdown'] }
-Plug 'reedes/vim-lexical', { 'for': ['text', 'tex', 'plaintex', 'markdown'] }
-Plug 'reedes/vim-pencil'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'dbmrq/vim-ditto'
+Plug 'reedes/vim-wordy'
+Plug 'reedes/vim-lexical'
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -128,17 +129,32 @@ let g:deoplete#enable_at_startup = 1
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " Prose
-" augroup lexical
-" 	autocmd!
-" 	autocmd FileType markdown,mkd,text,tex,plaintex call lexical#init()
-" augroup END
+augroup prose
+  au!
+  au FileType markdown,mkd,text,tex,plaintex call lexical#init()
+  au FileType markdown,mkd,text,tex,plaintex DittoOn
+  au FileType markdown,mkd,text,tex,plaintex Wordy ['weak', 'redundant', 'weasel', 'being']
+augroup END
 
-" au FileType markdown,mkd,text,tex,plaintex DittoOn
+" Enable writer mode
+function! s:goyo_enter()
+  set scrolloff=999
+  Limelight 0.5
+  Wordy ['weak', 'redundant', 'weasel', 'being']
+  DittoOn
+endfunction
 
-" Ale
-" let g:ale_linters = {
-" \   'haskell': [],
-" \}
+function! s:goyo_leave()
+  set scrolloff=5
+  Limelight!
+  Wordy off
+  DittoOff
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+nnoremap <leader>lp :Goyo<CR>
 
 " LanguageServers
 " Required for operations modifying multiple buffers like rename.
