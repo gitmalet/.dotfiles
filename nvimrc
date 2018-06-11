@@ -100,6 +100,9 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set noexpandtab
+
+" Fancy neovim stuff
+set inccommand=nosplit
 " }}}
 
 " Plugin specifics {{{
@@ -107,7 +110,17 @@ set noexpandtab
 if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background
+  hi clear SpellBad
+  hi SpellBad cterm=underline
+  hi clear SpellCap
+  hi SpellCap cterm=underline
+  hi clear SpellLocal
+  hi SpellLocal cterm=underline
+  hi clear SpellRare
+  hi SpellRare cterm=underline
 endif
+
+
 
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1

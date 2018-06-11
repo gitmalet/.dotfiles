@@ -189,7 +189,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Colors
-include themes/base16-dracula.config
+include themes/base16-atelier-heath.config
 
 #
 # Status Bar:
