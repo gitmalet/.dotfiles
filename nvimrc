@@ -133,28 +133,33 @@ augroup prose
   au!
   au FileType markdown,mkd,text,tex,plaintex call lexical#init()
   au FileType markdown,mkd,text,tex,plaintex DittoOn
-  au FileType markdown,mkd,text,tex,plaintex Wordy ['weak', 'redundant', 'weasel', 'being']
 augroup END
 
-" Enable writer mode
+let g:wordy#ring = [
+  \ ['weak', 'problematic', 'redundant', 'weasel', 'being', 'passive-voice', ],
+  \ ['colloquial', 'idiomatic', 'similies', ],
+  \ ['contractions', 'opinion', 'vague-time', 'said-synonyms', ],
+  \ ['adjectives', 'adverbs', ]
+  \ ]
+
 function! s:goyo_enter()
   set scrolloff=999
   Limelight 0.5
-  Wordy ['weak', 'redundant', 'weasel', 'being']
   DittoOn
 endfunction
 
 function! s:goyo_leave()
   set scrolloff=5
   Limelight!
-  Wordy off
+  NoWordy
   DittoOff
 endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
-nnoremap <leader>lp :Goyo<CR>
+nnoremap <leader>pw :Goyo<CR>
+nnoremap <leader>pf :NextWordy<CR>
 
 " LanguageServers
 " Required for operations modifying multiple buffers like rename.
