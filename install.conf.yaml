@@ -22,7 +22,8 @@
     ~/.zshrc.local: zshrc
     ~/.zfunctions/prompt_lean_setup: lean/lean.plugin.zsh
     ~/.config/nvim/init.vim: nvimrc
-    ~/.config/nvim/ftplugin: ftplugin
+    ~/.config/nvim/ftplugin: vim/ftplugin
+    ~/.config/nvim/syntax: vim/syntax
     ~/.config/base16-shell: base16-shell
     ~/.config/base16-termite: base16-termite
     ~/.fzf: fzf

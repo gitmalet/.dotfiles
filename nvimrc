@@ -53,11 +53,12 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
-Plug 'Shougo/neco-syntax'
 Plug 'lervag/vimtex', { 'for': ['tex', 'plaintex'] }
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'bohlender/vim-smt2'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'majutsushi/tagbar'
 
 " Prose
 Plug 'junegunn/goyo.vim'
@@ -80,10 +81,20 @@ filetype plugin indent on
 set textwidth=80
 set colorcolumn=+1
 
-" Remappings
+" Space is the leader
 :let mapleader = "\<space>"
-nmap <leader>- <C-w>s
-nmap <leader>\| <C-w>v
+" Window splitting
+nmap <silent> <leader>- <C-w>s
+nmap <silent> <leader>\| <C-w>v
+" Window navigation like a sane person
+nmap <silent> <C-Up> :wincmd k<CR>
+nmap <silent> <C-Down> :wincmd j<CR>
+nmap <silent> <C-Left> :wincmd h<CR>
+nmap <silent> <C-Right> :wincmd l<CR>
+nmap <silent> <C-k> :wincmd k<CR>
+nmap <silent> <C-j> :wincmd j<CR>
+nmap <silent> <C-h> :wincmd h<CR>
+nmap <silent> <C-l> :wincmd l<CR>
 
 " Looks again
 syntax on
@@ -102,8 +113,6 @@ set softtabstop=4
 set shiftwidth=4
 set noexpandtab
 
-" Fancy neovim stuff
-set inccommand=nosplit
 " }}}
 
 " Plugin specifics {{{
@@ -144,6 +153,7 @@ let g:wordy#ring = [
 
 function! s:goyo_enter()
   set scrolloff=999
+  let g:goyo_width = 180
   Limelight 0.5
   DittoOn
 endfunction
@@ -166,23 +176,25 @@ nnoremap <leader>pf :NextWordy<CR>
 set hidden
 
 let g:LanguageClient_serverCommands = {
-    \ 'c': ['cquery', 'clangd'],
-    \ 'cpp': ['cquery', 'clangd'],
-    \ 'python': ['pyls'],
-    \ 'haskell': ['hie', '--lsp'],
+    \ 'python': ['pyls']
     \ }
 
 nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
-nnoremap <silent> <leader>li :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> <leader>lh :call LanguageClient_textDocument_hover()<CR>
 nnoremap <silent> <leader>ld :call LanguageClient_textDocument_definition()<CR>
 nnoremap <silent> <leader>lr :call LanguageClient_textDocument_rename()<CR>
 nnoremap <silent> <leader>lf :call LanguageClient_textDocument_rangeFormatting()<CR>
+nnoremap <silent> <leader>lt :TagbarToggle<CR>
 
 " Denite
 if has('nvim')
 nnoremap <silent> <leader>ob :Denite buffer<CR>
 nnoremap <silent> <leader>of :Denite file<CR>
 endif
+
+" Proverif
+au BufRead,BufNewFile *.pv setfiletype proverif
+
 " }}}
 
 " NeoVim Setting {{{
@@ -191,5 +203,7 @@ if has("nvim")
 	"let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
 	"let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
 	set clipboard+=unnamedplus
+	" Better substitute handling with preview
+	set inccommand=nosplit
 endif
 " }}}
