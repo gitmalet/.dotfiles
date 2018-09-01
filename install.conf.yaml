@@ -16,6 +16,7 @@
     - [mkdir -p ~/.config/i3]
     - [mkdir -p ~/.config/termite]
     - [mkdir -p ~/.config/systemd/user]
+    - [mkdir -p ~/.proxychains]
 
 - link:
     ~/.zshrc: grml-etc-core/etc/zsh/zshrc
@@ -38,8 +39,10 @@
     ~/.config/sway/config: sway
     ~/.config/sway/themes: base16-i3/colors
     ~/.config/i3/config: i3.conf
+    ~/.xinitrc: xinitrc
     ~/.config/termite/config: termite
     ~/.config/systemd/user/emacs.service: emacs.service
+    ~/.proxychains/.proxychains.conf: proxychains.conf
 
 - shell:
     - [~/.fzf/install --all --no-update-rc, Installing FZF]
