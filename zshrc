@@ -24,12 +24,19 @@ export USE_EDITOR=$EDITOR
 export VISUAL=$EDITOR
 export DOWNLOADS="$HOME/Downloads"
 
+# FStar ecosystem
+export FSTAR_HOME=/opt/fstar
+export KREMLIN_HOME=/usr/lib/kremlin
+
 # Wayland
 export XKB_DEFAULT_LAYOUT=us
 export XKB_DEFAULT_VARIANT=euro
 export XKB_DEFAULT_MODEL=thinkpad
 export XKB_DEFAULT_OPTIONS=caps:escape
 export _JAVA_AWT_WM_NONREPARENTING=1
+
+# git-secret
+export SECRETS_EXTENSION=.gpg
 
 # Base16 Shell
 BASE16_SHELL="$HOME/.config/base16-shell/"
