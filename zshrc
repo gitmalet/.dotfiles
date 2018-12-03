@@ -8,7 +8,7 @@ bindkey -v
 export KEYTIMEOUT=1
 
 alias vim="nvim"
-alias o="xdg-open"
+alias o="rifle"
 alias ipy="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
 alias emacs="emacsclient -nc"
 alias mutt="neomutt"

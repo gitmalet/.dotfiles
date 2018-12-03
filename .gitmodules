@@ -25,3 +25,6 @@
 [submodule "base16-i3"]
 	path = base16-i3
 	url = https://github.com/khamer/base16-i3.git
+[submodule "voltron"]
+	path = voltron
+	url = https://github.com/archmalet/voltron.git

@@ -5,9 +5,7 @@
 - clean: ['~']
 
 - shell:
-    - [git submodule update --init --recursive, Installing submodules]
-    - [git pull --recurse-submodules, Pulling submodules]
-    - [git submodule update --recursive, Activate newest submodules]
+    - [git submodule update --init --recursive --remote, Installing submodules]
     - [mkdir -p ~/.zfunctions]
     - [mkdir -p ~/.config/nvim]
     - [mkdir -p ~/.mutt]
@@ -15,6 +13,7 @@
     - [mkdir -p ~/.config/sway]
     - [mkdir -p ~/.config/i3]
     - [mkdir -p ~/.config/termite]
+    - [mkdir -p ~/.config/zathura]
     - [mkdir -p ~/.config/systemd/user]
     - [mkdir -p ~/.proxychains]
 
@@ -25,6 +24,7 @@
     ~/.config/nvim/init.vim: nvimrc
     ~/.config/nvim/ftplugin: vim/ftplugin
     ~/.config/nvim/syntax: vim/syntax
+    ~/.config/zathura/zathurarc: zathurarc
     ~/.config/base16-shell: base16-shell
     ~/.config/base16-termite: base16-termite
     ~/.fzf: fzf
@@ -46,3 +46,4 @@
 
 - shell:
     - [~/.fzf/install --all --no-update-rc, Installing FZF]
+    - [cd voltron && ./install.sh, Installing voltron]

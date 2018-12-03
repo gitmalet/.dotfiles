@@ -32,6 +32,7 @@ Plug 'ntpeters/vim-better-whitespace'
 " Not used at the moment
 " Plug 'tpope/vim-repeat'
 " Plug 'tpope/vim-surround'
+Plug 'godlygeek/tabular'
 Plug 'tpope/vim-commentary'
 
 " Autocomplete and Format
@@ -66,6 +67,7 @@ Plug 'junegunn/limelight.vim'
 Plug 'dbmrq/vim-ditto'
 Plug 'reedes/vim-wordy'
 Plug 'reedes/vim-lexical'
+Plug 'ron89/thesaurus_query.vim'
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -170,6 +172,9 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 nnoremap <leader>pw :Goyo<CR>
 nnoremap <leader>pf :NextWordy<CR>
+
+let g:lexical#thesaurus = ['~/.local/share/nvim/thesaurus/mthesaur.txt',]
+let g:lexical#thesaurus_key = '<leader>pt'
 
 " LanguageServers
 " Required for operations modifying multiple buffers like rename.
