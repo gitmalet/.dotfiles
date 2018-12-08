@@ -38,7 +38,6 @@ Plug 'tpope/vim-commentary'
 " Autocomplete and Format
 if has('nvim')
 	Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
-	Plug 'chemzqm/denite-extra'
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
 	Plug 'Shougo/unite.vim'
@@ -50,10 +49,8 @@ Plug 'w0rp/ale'
 
 " Languages
 "
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
 Plug 'lervag/vimtex', { 'for': ['tex', 'plaintex'] }
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
@@ -62,7 +59,6 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
 
 " Prose
-Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'dbmrq/vim-ditto'
 Plug 'reedes/vim-wordy'
@@ -153,52 +149,48 @@ let g:wordy#ring = [
   \ ['adjectives', 'adverbs', ]
   \ ]
 
-function! s:goyo_enter()
-  set scrolloff=999
-  let g:goyo_width = 180
-  Limelight 0.5
-  DittoOn
-endfunction
-
-function! s:goyo_leave()
-  set scrolloff=5
-  Limelight!
-  NoWordy
-  DittoOff
-endfunction
-
-autocmd! User GoyoEnter nested call <SID>goyo_enter()
-autocmd! User GoyoLeave nested call <SID>goyo_leave()
-
-nnoremap <leader>pw :Goyo<CR>
 nnoremap <leader>pf :NextWordy<CR>
 
 let g:lexical#thesaurus = ['~/.local/share/nvim/thesaurus/mthesaur.txt',]
 let g:lexical#thesaurus_key = '<leader>pt'
 
 " LanguageServers
-" Required for operations modifying multiple buffers like rename.
-set hidden
+if executable('pyls')
+    " pip install python-language-server
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'pyls',
+        \ 'cmd': {server_info->['pyls']},
+        \ 'whitelist': ['python'],
+        \ })
+endif
 
-let g:LanguageClient_serverCommands = {
-    \ 'python': ['pyls']
-    \ }
+" Actions
+nnoremap <leader>lf :LspDocumentFormat
+"nnoremap <leader>lf :LspDocumentRangeFormat
+nnoremap <leader>lr :LspRename
 
-nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
-nnoremap <silent> <leader>lh :call LanguageClient_textDocument_hover()<CR>
-nnoremap <silent> <leader>ld :call LanguageClient_textDocument_definition()<CR>
-nnoremap <silent> <leader>lr :call LanguageClient_textDocument_rename()<CR>
-nnoremap <silent> <leader>lf :call LanguageClient_textDocument_rangeFormatting()<CR>
-nnoremap <silent> <leader>lt :TagbarToggle<CR>
+" Navigation
+nnoremap <leader>lgi :LspImplementation
+nnoremap <leader>lgt :LspTypeDefinition
+nnoremap <leader>lgd :LspDefinition
+nnoremap <leader>lge :LspNextError
+nnoremap <leader>lGe :LspPreviousError
+
+" Show things
+nnoremap <leader>lsa :LspCodeAction
+nnoremap <leader>lsd :LspDocumentDiagnostics
+nnoremap <leader>lsh :LspHover
+nnoremap <leader>lsr :LspReferences
+nnoremap <leader>lss :LspWorkspaceSymbol
+"nnoremap <leader>lss :LspDocumentSymbol
+nnoremap <silent> <leader>lst :TagbarToggle<CR>
 
 " Denite
 if has('nvim')
-nnoremap <silent> <leader>ob :Denite buffer<CR>
-nnoremap <silent> <leader>of :Denite file<CR>
+  nnoremap <silent> <leader>ob :Denite buffer<CR>
+  nnoremap <silent> <leader>of :Denite file<CR>
+  nnoremap <silent> <leader><leader> :Denite command<CR>
 endif
-
-" Proverif
-au BufRead,BufNewFile *.pv setfiletype proverif
 
 " }}}
 
