@@ -1,4 +1,6 @@
 [options]
+font = Droid Sans Mono 8
+font = Source Code Pro 13
 scroll_on_output = false
 scroll_on_keystroke = true
 audible_bell = false
@@ -7,11 +9,8 @@ allow_bold = true
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-font = Source Code Pro 13
 scrollback_lines = 10000
 search_wrap = true
-#icon_name = terminal
-#geometry = 640x480
 
 # "system", "on" or "off"
 cursor_blink = system

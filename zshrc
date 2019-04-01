@@ -1,7 +1,7 @@
 # User configuration
 
 export FPATH="${FPATH}:${HOME}/.zfunctions"
-export PATH="${HOME}/.bin:${HOME}/.local/bin:${PATH}"
+export PATH="${HOME}/.bin:${HOME}/.local/bin:${HOME}/.cargo/bin/:${PATH}"
 
 # Vi-Mode
 bindkey -v
@@ -18,7 +18,7 @@ bindkey '^R' history-incremental-pattern-search-backward
 
 export TERMINAL="termite"
 export TERM="xterm-256color"
-export BROWSER="chromium"
+export BROWSER="firefox"
 export EDITOR="nvim"
 export USE_EDITOR=$EDITOR
 export VISUAL=$EDITOR
@@ -29,10 +29,10 @@ export FSTAR_HOME=/opt/fstar
 export KREMLIN_HOME=/usr/lib/kremlin
 
 # Wayland
-export XKB_DEFAULT_LAYOUT=us
-export XKB_DEFAULT_VARIANT=euro
-export XKB_DEFAULT_MODEL=thinkpad
-export XKB_DEFAULT_OPTIONS=caps:escape
+# export XKB_DEFAULT_LAYOUT=us
+# export XKB_DEFAULT_VARIANT=euro
+# export XKB_DEFAULT_MODEL=thinkpad
+# export XKB_DEFAULT_OPTIONS=caps:escape
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 # git-secret

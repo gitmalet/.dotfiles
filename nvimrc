@@ -35,28 +35,31 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-commentary'
 
-" Autocomplete and Format
+" Autocomplete and Searching
 if has('nvim')
-	Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
-	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
-	Plug 'Shougo/unite.vim'
-	Plug 'Shougo/deoplete.nvim'
-	Plug 'roxma/nvim-yarp'
-	Plug 'roxma/vim-hug-neovim-rpc'
+  Plug 'Shougo/unite.vim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
 endif
+
 Plug 'w0rp/ale'
 
 " Languages
 "
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
+
 Plug 'lervag/vimtex', { 'for': ['tex', 'plaintex'] }
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'bohlender/vim-smt2'
+Plug 'wannesm/wmnusmv.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
+Plug 'sheerun/vim-polyglot'
 
 " Prose
 Plug 'junegunn/limelight.vim'
@@ -163,25 +166,48 @@ if executable('pyls')
         \ 'whitelist': ['python'],
         \ })
 endif
+if executable('cquery')
+   au User lsp_setup call lsp#register_server({
+      \ 'name': 'cquery',
+      \ 'cmd': {server_info->['cquery']},
+      \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json'))},
+      \ 'initialization_options': { 'cacheDirectory': '/path/to/cquery/cache' },
+      \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp', 'cc'],
+      \ })
+endif
+if executable('hie-wrapper')
+   au User lsp_setup call lsp#register_server({
+      \ 'name': 'hie',
+      \ 'cmd': {server_info->['hie']},
+      \ 'whitelist': ['haskell'],
+      \ })
+endif
+if executable('rls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'rls',
+        \ 'cmd': {server_info->['rustup', 'run', 'nightly', 'rls']},
+        \ 'whitelist': ['rust'],
+        \ })
+endif
 
 " Actions
-nnoremap <leader>lf :LspDocumentFormat
-"nnoremap <leader>lf :LspDocumentRangeFormat
-nnoremap <leader>lr :LspRename
+nnoremap <leader>lf :LspDocumentFormat<CR>
+"nnoremap <leader>lf :LspDocumentRangeFormat<CR>
+nnoremap <leader>lr :LspRename<CR>
 
 " Navigation
-nnoremap <leader>lgi :LspImplementation
-nnoremap <leader>lgt :LspTypeDefinition
-nnoremap <leader>lgd :LspDefinition
-nnoremap <leader>lge :LspNextError
-nnoremap <leader>lGe :LspPreviousError
+nnoremap <leader>lgi :LspImplementation<CR>
+nnoremap <leader>lgt :LspTypeDefinition<CR>
+nnoremap <leader>lgd :LspDefinition<CR>
+nnoremap <leader>lge :LspNextError<CR>
+nnoremap <leader>lGe :LspPreviousError<CR>
 
 " Show things
-nnoremap <leader>lsa :LspCodeAction
-nnoremap <leader>lsd :LspDocumentDiagnostics
-nnoremap <leader>lsh :LspHover
-nnoremap <leader>lsr :LspReferences
-nnoremap <leader>lss :LspWorkspaceSymbol
+nnoremap <leader>lsa :LspCodeAction<CR>
+nnoremap <leader>lsd :LspDocumentDiagnostics<CR>
+nnoremap <leader>lsh :LspHover<CR>
+nnoremap <leader>lsr :LspReferences<CR>
+nnoremap <leader>lss :LspWorkspaceSymbol<CR>
 "nnoremap <leader>lss :LspDocumentSymbol
 nnoremap <silent> <leader>lst :TagbarToggle<CR>
 

@@ -13,6 +13,7 @@
     - [mkdir -p ~/.config/sway]
     - [mkdir -p ~/.config/i3]
     - [mkdir -p ~/.config/termite]
+    - [mkdir -p ~/.config/alacritty.yml]
     - [mkdir -p ~/.config/zathura]
     - [mkdir -p ~/.config/systemd/user]
     - [mkdir -p ~/.proxychains]
@@ -31,8 +32,8 @@
     ~/.zsh-syntax-highlighting: zsh-syntax-highlighting
     ~/.tmux.conf: tmux.conf
     ~/.muttrc: muttrc
-    ~/.mutt/vim-keys.rc: mutt-vim-keys.rc
-    ~/.mutt/colors.rc: mutt-colors.rc
+    ~/.mutt/bindings.rc: mutt/bindings.rc
+    ~/.mutt/colors.rc: mutt/colors.rc
     ~/.radare2rc: radare2rc
     ~/.gdbinit: gdbinit
     ~/.gdbinit-gef.py: gef/gef.py
@@ -41,9 +42,9 @@
     ~/.config/i3/config: i3.conf
     ~/.xinitrc: xinitrc
     ~/.config/termite/config: termite
+    ~/.config/alacritty/alacritty.yml: alacritty.yml
     ~/.config/systemd/user/emacs.service: emacs.service
     ~/.proxychains/.proxychains.conf: proxychains.conf
 
 - shell:
     - [~/.fzf/install --all --no-update-rc, Installing FZF]
-    - [cd voltron && ./install.sh, Installing voltron]

@@ -6,7 +6,7 @@ unset imap_passive
 set mail_check = 60
 set mbox_type=Maildir
 
-source ~/.mutt/vim-keys.rc
+source ~/.mutt/bindings.rc
 source ~/.mutt/colors.rc
 source ~/.mutt/accounts
 
