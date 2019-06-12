@@ -17,7 +17,7 @@ set $term termite
 # Your preferred application launcher
 set $menu dmenu_run
 # Your preferred browser
-set $browser chromium
+set $browser firefox
 # Your font
 set $font pango:SourceCodePro
 
