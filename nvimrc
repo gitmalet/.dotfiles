@@ -35,28 +35,17 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-commentary'
 
-" Autocomplete and Searching
+" Autocomplete and language support
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
 if has('nvim')
   Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/unite.vim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
 endif
-
 Plug 'w0rp/ale'
 
-" Languages
-"
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
 
-Plug 'lervag/vimtex', { 'for': ['tex', 'plaintex'] }
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'bohlender/vim-smt2'
-Plug 'wannesm/wmnusmv.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
 Plug 'sheerun/vim-polyglot'
@@ -131,12 +120,111 @@ if filereadable(expand("~/.vimrc_background"))
   hi SpellRare cterm=underline
 endif
 
+" CoC
+" Better display for messages
+" set cmdheight=2
+
+" Smaller updatetime for CursorHold & CursorHoldI
+set updatetime=300
+
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+
+" always show signcolumns
+set signcolumn=yes
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 
-" Use deoplete.
-let g:deoplete#enable_at_startup = 1
-" and also close the preview window automatically
-autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+" Use `[c` and `]c` to navigate diagnostics
+nmap <silent> <leader>lge <Plug>(coc-diagnostic-prev)
+nmap <silent> <leader>lGe <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> <leader>lgd <Plug>(coc-definition)
+nmap <silent> <leader>lgy <Plug>(coc-type-definition)
+nmap <silent> <leader>lgi <Plug>(coc-implementation)
+nmap <silent> <leader>lgr <Plug>(coc-references)
+
+" Use K to show documentation in preview window
+nnoremap <silent> <leader>lsd :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Remap for rename current word
+nmap <leader>lr <Plug>(coc-rename)
+
+" Remap for format selected region
+xmap <leader>lf  <Plug>(coc-format-selected)
+nmap <leader>lf  <Plug>(coc-format-selected)
+
+" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
+xmap <leader>la  <Plug>(coc-codeaction-selected)
+nmap <leader>la  <Plug>(coc-codeaction-selected)
+
+" Remap for do codeAction of current line
+nmap <leader>lal  <Plug>(coc-codeaction)
+" Fix autofix problem of current line
+nmap <leader>lfl  <Plug>(coc-fix-current)
+
+" Use `:Format` to format current buffer
+command! -nargs=0 Format :call CocAction('format')
+
+" Use `:Fold` to fold current buffer
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" use `:OR` for organize import of current buffer
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+" Add diagnostic info for https://github.com/itchyny/lightline.vim
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'cocstatus': 'coc#status'
+      \ },
+      \ }
+
+
+
+" Using CocList
+" Show all diagnostics
+nnoremap <silent> <leader>lsd  :<C-u>CocList diagnostics<cr>
+" Manage extensions
+nnoremap <silent> <space>lce  :<C-u>CocList extensions<cr>
+" Show commands
+nnoremap <silent> <space>lcc  :<C-u>CocList commands<cr>
+" Find symbol of current document
+nnoremap <silent> <space>lo  :<C-u>CocList outline<cr>
+" Search workspace symbols
+nnoremap <silent> <space>ls  :<C-u>CocList -I symbols<cr>
+
+let g:coc_global_extensions= [
+      \ 'coc-json',
+      \ 'coc-rls',
+      \ 'coc-python',
+      \ 'coc-git',
+      \ 'coc-vimlsp',
+      \ 'coc-vimtex',
+      \ 'coc-lists',
+  \ ]
+
+" Show options
+nmap <silent> <leader>l? :<C-u>map <leader>l<CR>
 
 " Prose
 augroup prose
@@ -156,60 +244,6 @@ nnoremap <leader>pf :NextWordy<CR>
 
 let g:lexical#thesaurus = ['~/.local/share/nvim/thesaurus/mthesaur.txt',]
 let g:lexical#thesaurus_key = '<leader>pt'
-
-" LanguageServers
-if executable('pyls')
-    " pip install python-language-server
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'pyls',
-        \ 'cmd': {server_info->['pyls']},
-        \ 'whitelist': ['python'],
-        \ })
-endif
-if executable('cquery')
-   au User lsp_setup call lsp#register_server({
-      \ 'name': 'cquery',
-      \ 'cmd': {server_info->['cquery']},
-      \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json'))},
-      \ 'initialization_options': { 'cacheDirectory': '/path/to/cquery/cache' },
-      \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp', 'cc'],
-      \ })
-endif
-if executable('hie-wrapper')
-   au User lsp_setup call lsp#register_server({
-      \ 'name': 'hie',
-      \ 'cmd': {server_info->['hie']},
-      \ 'whitelist': ['haskell'],
-      \ })
-endif
-if executable('rls')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'rls',
-        \ 'cmd': {server_info->['rustup', 'run', 'nightly', 'rls']},
-        \ 'whitelist': ['rust'],
-        \ })
-endif
-
-" Actions
-nnoremap <leader>lf :LspDocumentFormat<CR>
-"nnoremap <leader>lf :LspDocumentRangeFormat<CR>
-nnoremap <leader>lr :LspRename<CR>
-
-" Navigation
-nnoremap <leader>lgi :LspImplementation<CR>
-nnoremap <leader>lgt :LspTypeDefinition<CR>
-nnoremap <leader>lgd :LspDefinition<CR>
-nnoremap <leader>lge :LspNextError<CR>
-nnoremap <leader>lGe :LspPreviousError<CR>
-
-" Show things
-nnoremap <leader>lsa :LspCodeAction<CR>
-nnoremap <leader>lsd :LspDocumentDiagnostics<CR>
-nnoremap <leader>lsh :LspHover<CR>
-nnoremap <leader>lsr :LspReferences<CR>
-nnoremap <leader>lss :LspWorkspaceSymbol<CR>
-"nnoremap <leader>lss :LspDocumentSymbol
-nnoremap <silent> <leader>lst :TagbarToggle<CR>
 
 " Denite
 if has('nvim')

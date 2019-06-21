@@ -5,7 +5,7 @@
 - clean: ['~']
 
 - shell:
-    - [git submodule update --init --recursive --remote, Installing submodules]
+    - [git submodule update --init --recursive, Recursive submoduling]
     - [mkdir -p ~/.zfunctions]
     - [mkdir -p ~/.config/nvim]
     - [mkdir -p ~/.mutt]
