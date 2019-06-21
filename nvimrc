@@ -36,11 +36,11 @@ Plug 'godlygeek/tabular'
 Plug 'tpope/vim-commentary'
 
 " Autocomplete and language support
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
-if has('nvim')
-  Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
-endif
 Plug 'w0rp/ale'
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+
+" Search
+Plug 'junegunn/fzf.vim'
 
 
 Plug 'vim-pandoc/vim-pandoc'
@@ -122,7 +122,7 @@ endif
 
 " CoC
 " Better display for messages
-" set cmdheight=2
+set cmdheight=2
 
 " Smaller updatetime for CursorHold & CursorHoldI
 set updatetime=300
@@ -205,13 +205,13 @@ let g:lightline = {
 " Show all diagnostics
 nnoremap <silent> <leader>lsd  :<C-u>CocList diagnostics<cr>
 " Manage extensions
-nnoremap <silent> <space>lce  :<C-u>CocList extensions<cr>
+nnoremap <silent> <leader>lce  :<C-u>CocList extensions<cr>
 " Show commands
-nnoremap <silent> <space>lcc  :<C-u>CocList commands<cr>
+nnoremap <silent> <leader>lcc  :<C-u>CocList commands<cr>
 " Find symbol of current document
-nnoremap <silent> <space>lo  :<C-u>CocList outline<cr>
+nnoremap <silent> <leader>lo  :<C-u>CocList outline<cr>
 " Search workspace symbols
-nnoremap <silent> <space>ls  :<C-u>CocList -I symbols<cr>
+nnoremap <silent> <leader>ls  :<C-u>CocList -I symbols<cr>
 
 let g:coc_global_extensions= [
       \ 'coc-json',
@@ -223,8 +223,12 @@ let g:coc_global_extensions= [
       \ 'coc-lists',
   \ ]
 
-" Show options
-nmap <silent> <leader>l? :<C-u>map <leader>l<CR>
+" fzf config
+set rtp+=~/.fzf
+
+" Show mappings
+nmap <leader><tab> <plug>(fzf-maps-n)
+nnoremap <leader>l? :call fzf#vim#maps('n')<cr>coc-
 
 " Prose
 augroup prose
@@ -244,13 +248,6 @@ nnoremap <leader>pf :NextWordy<CR>
 
 let g:lexical#thesaurus = ['~/.local/share/nvim/thesaurus/mthesaur.txt',]
 let g:lexical#thesaurus_key = '<leader>pt'
-
-" Denite
-if has('nvim')
-  nnoremap <silent> <leader>ob :Denite buffer<CR>
-  nnoremap <silent> <leader>of :Denite file<CR>
-  nnoremap <silent> <leader><leader> :Denite command<CR>
-endif
 
 " }}}
 
