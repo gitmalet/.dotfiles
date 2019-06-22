@@ -22,7 +22,6 @@
 - link:
     ~/.zshrc: grml-etc-core/etc/zsh/zshrc
     ~/.zshrc.local: zshrc
-    ~/.config/fish/config.fish: config.fish
     ~/.zfunctions/prompt_lean_setup: lean/lean.plugin.zsh
     ~/.config/nvim/init.vim: nvimrc
     ~/.config/nvim/ftplugin: vim/ftplugin
@@ -45,8 +44,10 @@
     ~/.xinitrc: xinitrc
     ~/.config/termite/config: termite
     ~/.config/alacritty/alacritty.yml: alacritty.yml
+    ~/.config/alacritty/colors: base16-alacritty/colors
     ~/.config/systemd/user/emacs.service: emacs.service
     ~/.proxychains/.proxychains.conf: proxychains.conf
+    ~/.config/fish/config.fish: config.fish
 
 - shell:
     - [~/.fzf/install --all --no-update-rc, Installing FZF]
