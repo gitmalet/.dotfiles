@@ -15,7 +15,6 @@ set -x DOWNLOADS "$HOME/Downloads"
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 # Util options
-set -x GREP_OPTIONS '--color=auto'
 set -x LESS '--ignore-case --raw-control-chars'
 set -x PAGER 'less'
 
