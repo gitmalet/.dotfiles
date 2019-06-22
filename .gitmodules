@@ -31,3 +31,6 @@
 [submodule "base16-alacritty"]
 	path = base16-alacritty
 	url = https://github.com/aaron-williamson/base16-alacritty.git
+[submodule "fisher"]
+	path = fisher
+	url = https://github.com/jorgebucaran/fisher.git

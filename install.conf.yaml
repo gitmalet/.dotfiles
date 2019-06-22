@@ -15,6 +15,7 @@
     - [mkdir -p ~/.config/termite]
     - [mkdir -p ~/.config/alacritty.yml]
     - [mkdir -p ~/.config/fish]
+    - [mkdir -p ~/.config/fish/functions]
     - [mkdir -p ~/.config/zathura]
     - [mkdir -p ~/.config/systemd/user]
     - [mkdir -p ~/.proxychains]
@@ -48,6 +49,9 @@
     ~/.config/systemd/user/emacs.service: emacs.service
     ~/.proxychains/.proxychains.conf: proxychains.conf
     ~/.config/fish/config.fish: config.fish
+    ~/.config/fish/fishfile: fishfile
+    ~/.config/fish/functions/fisher.fish: fisher/fisher.fish
 
 - shell:
-    - [~/.fzf/install --all --no-update-rc, Installing FZF]
+    - [~/.fzf/install --all --no-update-rc --no-fish, Installing FZF]
+    - [fish -c 'fisher', Installing FZF]
