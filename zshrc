@@ -7,7 +7,6 @@ export PATH="${HOME}/.bin:${HOME}/.local/bin:${HOME}/.cargo/bin/:${PATH}"
 bindkey -v
 export KEYTIMEOUT=1
 
-alias vim="nvim"
 alias o="rifle"
 alias ipy="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
 alias emacs="emacsclient -nc"
