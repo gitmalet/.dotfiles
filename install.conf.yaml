@@ -14,6 +14,7 @@
     - [mkdir -p ~/.config/i3]
     - [mkdir -p ~/.config/termite]
     - [mkdir -p ~/.config/alacritty.yml]
+    - [mkdir -p ~/.config/fish]
     - [mkdir -p ~/.config/zathura]
     - [mkdir -p ~/.config/systemd/user]
     - [mkdir -p ~/.proxychains]
@@ -21,6 +22,7 @@
 - link:
     ~/.zshrc: grml-etc-core/etc/zsh/zshrc
     ~/.zshrc.local: zshrc
+    ~/.config/fish/config.fish: config.fish
     ~/.zfunctions/prompt_lean_setup: lean/lean.plugin.zsh
     ~/.config/nvim/init.vim: nvimrc
     ~/.config/nvim/ftplugin: vim/ftplugin
