@@ -13,7 +13,7 @@
     - [mkdir -p ~/.config/sway]
     - [mkdir -p ~/.config/i3]
     - [mkdir -p ~/.config/termite]
-    - [mkdir -p ~/.config/alacritty.yml]
+    - [mkdir -p ~/.config/alacritty]
     - [mkdir -p ~/.config/fish]
     - [mkdir -p ~/.config/fish/functions]
     - [mkdir -p ~/.config/zathura]

@@ -37,7 +37,8 @@ Plug 'tpope/vim-commentary'
 
 " Autocomplete and language support
 Plug 'w0rp/ale'
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+Plug 'honza/vim-snippets'
 
 " Search
 Plug 'junegunn/fzf.vim'
@@ -51,11 +52,11 @@ Plug 'majutsushi/tagbar'
 Plug 'sheerun/vim-polyglot'
 
 " Prose
-Plug 'junegunn/limelight.vim'
 Plug 'dbmrq/vim-ditto'
 Plug 'reedes/vim-wordy'
 Plug 'reedes/vim-lexical'
-Plug 'ron89/thesaurus_query.vim'
+Plug 'reedes/vim-pencil'
+Plug 'reedes/vim-litecorrect'
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -120,7 +121,35 @@ if filereadable(expand("~/.vimrc_background"))
   hi SpellRare cterm=underline
 endif
 
-" CoC
+
+" fzf config
+set rtp+=~/.fzf
+
+" Show mappings
+nmap <leader><tab> <plug>(fzf-maps-n)
+nnoremap <leader>l? :call fzf#vim#maps('n')<cr>coc-
+
+" Prose
+augroup prose
+  au!
+  au FileType markdown,mkd,text,tex,plaintex call lexical#init()
+  au FileType markdown,mkd,text,tex,plaintex DittoOn
+  au FileType markdown,mkd,text,tex,plaintex call pencil#init({'wrap': 'soft'})
+  au FileType markdown,mkd,text,tex,plaintex call litecorrect#init()
+augroup END
+
+let g:wordy#ring = [
+  \ ['weak', 'problematic', 'redundant', 'puffery', 'weasel', 'being', 'passive-voice', ],
+  \ ['colloquial', 'idiomatic', 'similies', ],
+  \ ['contractions', 'opinion', 'vague-time', 'said-synonyms', ],
+  \ ['adjectives', 'adverbs', ]
+  \ ]
+
+let g:lexical#spelllang = ['en_us','en_gb','de_de', 'de_at']
+
+" }}}
+
+" Completion {{{
 " Better display for messages
 set cmdheight=2
 
@@ -133,24 +162,41 @@ set shortmess+=c
 " always show signcolumns
 set signcolumn=yes
 
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
-" Coc only does snippet and additional edit on confirm.
+" Use <c-space> to trigger <tab> to navigate and <enter> to commit.
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <silent><expr> <c-space> coc#refresh()
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
 
-" Use `[c` and `]c` to navigate diagnostics
+" Navigation
 nmap <silent> <leader>lge <Plug>(coc-diagnostic-prev)
 nmap <silent> <leader>lGe <Plug>(coc-diagnostic-next)
-
-" Remap keys for gotos
+nmap <silent> <leader>lgr <Plug>(coc-references)
 nmap <silent> <leader>lgd <Plug>(coc-definition)
 nmap <silent> <leader>lgy <Plug>(coc-type-definition)
 nmap <silent> <leader>lgi <Plug>(coc-implementation)
-nmap <silent> <leader>lgr <Plug>(coc-references)
 
-" Use K to show documentation in preview window
-nnoremap <silent> <leader>lsd :call <SID>show_documentation()<CR>
+" Snippets
+imap <C-l> <Plug>(coc-snippets-expand)
+vmap <C-j> <Plug>(coc-snippets-select)
+let g:coc_snippet_next = '<c-j>'
+let g:coc_snippet_prev = '<c-k>'
+imap <C-j> <Plug>(coc-snippets-expand-jump)
 
+let g:coc_snippet_next = '<tab>'
+
+" Show Documentation
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
@@ -159,24 +205,25 @@ function! s:show_documentation()
   endif
 endfunction
 
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+nnoremap <silent> <leader>lsd :call <SID>show_documentation()<CR>
+
 " Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" Remap for rename current word
+" Code Actions
 nmap <leader>lr <Plug>(coc-rename)
-
-" Remap for format selected region
-xmap <leader>lf  <Plug>(coc-format-selected)
 nmap <leader>lf  <Plug>(coc-format-selected)
-
-" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
-xmap <leader>la  <Plug>(coc-codeaction-selected)
 nmap <leader>la  <Plug>(coc-codeaction-selected)
-
-" Remap for do codeAction of current line
 nmap <leader>lal  <Plug>(coc-codeaction)
-" Fix autofix problem of current line
 nmap <leader>lfl  <Plug>(coc-fix-current)
+
+" Show things
+nnoremap <silent> <leader>lsd  :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <leader>lse  :<C-u>CocList extensions<cr>
+nnoremap <silent> <leader>lsc  :<C-u>CocList commands<cr>
+nnoremap <silent> <leader>lso  :<C-u>CocList outline<cr>
+nnoremap <silent> <leader>lss  :<C-u>CocList -I symbols<cr>
 
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
@@ -199,55 +246,15 @@ let g:lightline = {
       \ },
       \ }
 
-
-
-" Using CocList
-" Show all diagnostics
-nnoremap <silent> <leader>lsd  :<C-u>CocList diagnostics<cr>
-" Manage extensions
-nnoremap <silent> <leader>lce  :<C-u>CocList extensions<cr>
-" Show commands
-nnoremap <silent> <leader>lcc  :<C-u>CocList commands<cr>
-" Find symbol of current document
-nnoremap <silent> <leader>lo  :<C-u>CocList outline<cr>
-" Search workspace symbols
-nnoremap <silent> <leader>ls  :<C-u>CocList -I symbols<cr>
-
 let g:coc_global_extensions= [
       \ 'coc-json',
       \ 'coc-rls',
       \ 'coc-python',
       \ 'coc-git',
       \ 'coc-vimlsp',
-      \ 'coc-vimtex',
       \ 'coc-lists',
+      \ 'coc-snippets'
   \ ]
-
-" fzf config
-set rtp+=~/.fzf
-
-" Show mappings
-nmap <leader><tab> <plug>(fzf-maps-n)
-nnoremap <leader>l? :call fzf#vim#maps('n')<cr>coc-
-
-" Prose
-augroup prose
-  au!
-  au FileType markdown,mkd,text,tex,plaintex call lexical#init()
-  au FileType markdown,mkd,text,tex,plaintex DittoOn
-augroup END
-
-let g:wordy#ring = [
-  \ ['weak', 'problematic', 'redundant', 'weasel', 'being', 'passive-voice', ],
-  \ ['colloquial', 'idiomatic', 'similies', ],
-  \ ['contractions', 'opinion', 'vague-time', 'said-synonyms', ],
-  \ ['adjectives', 'adverbs', ]
-  \ ]
-
-nnoremap <leader>pf :NextWordy<CR>
-
-let g:lexical#thesaurus = ['~/.local/share/nvim/thesaurus/mthesaur.txt',]
-let g:lexical#thesaurus_key = '<leader>pt'
 
 " }}}
 
