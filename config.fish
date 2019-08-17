@@ -10,6 +10,7 @@ set -x EDITOR "nvim"
 set -x USE_EDITOR $EDITOR
 set -x VISUAL $EDITOR
 set -x DOWNLOADS "$HOME/Downloads"
+set -x DISPLAY ":0"
 
 # Java Tiling fix
 export _JAVA_AWT_WM_NONREPARENTING=1

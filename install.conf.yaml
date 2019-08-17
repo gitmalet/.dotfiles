@@ -52,5 +52,5 @@
     ~/.config/fish/functions/fisher.fish: fisher/fisher.fish
 
 - shell:
-    - [~/.fzf/install --all --no-update-rc --no-fish, Installing FZF]
+    - [~/.fzf/install --all --no-update-rc, Installing FZF]
     - [fish -c 'fisher', Installing FZF]
