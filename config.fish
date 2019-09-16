@@ -12,6 +12,8 @@ set -x VISUAL $EDITOR
 set -x DOWNLOADS "$HOME/Downloads"
 set -x DISPLAY ":0"
 
+set -x PATH "$HOME/.bin:$HOME/.local/bin:$HOME/.cargo/bin/:$HOME/.dotnet/tools:$PATH"
+
 # Java Tiling fix
 export _JAVA_AWT_WM_NONREPARENTING=1
 
