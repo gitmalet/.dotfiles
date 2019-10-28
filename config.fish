@@ -12,7 +12,7 @@ set -x VISUAL $EDITOR
 set -x DOWNLOADS "$HOME/Downloads"
 
 # Xorg
-# set -x DISPLAY ":0"
+set -x DISPLAY ":0"
 # set -x XAUTHORITY "$HOME/.Xauthority"
 
 set -x PATH "$HOME/.bin:$HOME/.local/bin:$HOME/.cargo/bin/:$HOME/.dotnet/tools:$PATH"
