@@ -1,7 +1,7 @@
 # User configuration
 
 export FPATH="${FPATH}:${HOME}/.zfunctions"
-export PATH="${HOME}/.bin:${HOME}/.local/bin:${HOME}/.cargo/bin/:${PATH}"
+export PATH="${HOME}/.bin:${HOME}/.local/bin:${HOME}/.cargo/bin/:${HOME}/.node_modules/bin/:${PATH}"
 
 # Vi-Mode
 bindkey -v

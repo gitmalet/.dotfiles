@@ -12,13 +12,16 @@ set -x VISUAL $EDITOR
 set -x DOWNLOADS "$HOME/Downloads"
 
 # Xorg
-set -x DISPLAY ":0"
+# set -x DISPLAY ":0"
 # set -x XAUTHORITY "$HOME/.Xauthority"
 
-set -x PATH "$HOME/.bin:$HOME/.local/bin:$HOME/.cargo/bin/:$HOME/.dotnet/tools:$PATH"
+set -x PATH "$HOME/.bin:$HOME/.local/bin:$HOME/.cargo/bin/:$HOME/.dotnet/tools:$HOME/.node_modules/bin:$PATH"
 
 # Java Tiling fix
-export _JAVA_AWT_WM_NONREPARENTING=1
+set -x _JAVA_AWT_WM_NONREPARENTING 1
+
+# NPM
+set -x npm_config_prefix ~/.node_modules
 
 # Util options
 set -x LESS '--ignore-case --raw-control-chars'
