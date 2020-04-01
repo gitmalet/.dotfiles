@@ -45,7 +45,6 @@
     ~/.config/termite/config: termite
     ~/.config/alacritty/alacritty.yml: alacritty.yml
     ~/.config/alacritty/colors: base16-alacritty/colors
-    ~/.config/systemd/user/emacs.service: emacs.service
     ~/.proxychains/.proxychains.conf: proxychains.conf
     ~/.config/fish/config.fish: config.fish
     ~/.config/fish/fishfile: fishfile
