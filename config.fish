@@ -32,3 +32,6 @@ if status --is-interactive
     set BASE16_SHELL "$HOME/.config/base16-shell/"
     source "$BASE16_SHELL/profile_helper.fish"
 end
+
+# opam configuration
+source /home/malet/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
