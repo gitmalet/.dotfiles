@@ -17,7 +17,7 @@
     - [mkdir -p ~/.config/fish]
     - [mkdir -p ~/.config/fish/functions]
     - [mkdir -p ~/.config/zathura]
-    - [mkdir -p ~/.config/systemd/user]
+    - [mkdir -p ~/.config/mako]
     - [mkdir -p ~/.proxychains]
 
 - link:
@@ -49,6 +49,7 @@
     ~/.config/fish/config.fish: config.fish
     ~/.config/fish/fishfile: fishfile
     ~/.config/fish/functions/fisher.fish: fisher/fisher.fish
+    ~/.config/mako/config: mako
 
 - shell:
     - [~/.fzf/install --all --no-update-rc, Installing FZF]
