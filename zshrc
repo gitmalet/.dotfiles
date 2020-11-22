@@ -43,5 +43,21 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
         eval "$("$BASE16_SHELL/profile_helper.sh")"
 
+# GRML
+function virtual_env_prompt () {
+    REPLY=${VIRTUAL_ENV+(${VIRTUAL_ENV:t}) }
+}
+grml_theme_add_token virtual-env -f virtual_env_prompt '%F{magenta}' '%f'
+
+export GRML_NO_APT_ALIASES=1
+zstyle ':prompt:grml:left:setup' items rc virtual-env change-root path vcs percent
+zstyle ':prompt:grml:*:items:path' pre '%F{magenta}'
+zstyle ':prompt:grml:*:items:path' post '%f'
+
+# autosuggestions
+[ -f ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.sh ] \
+    && source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.sh
+
 # fzf Completion
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.fzf.zsh ] \
+    && source ~/.fzf.zsh

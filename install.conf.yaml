@@ -7,12 +7,12 @@
 - shell:
     - [git submodule update --init --recursive, Recursive submoduling]
     - [mkdir -p ~/.zfunctions]
+    - [mkdir -p ~/.zsh]
     - [mkdir -p ~/.config/nvim]
     - [mkdir -p ~/.mutt]
     - [mkdir -p ~/.config/base16-sway]
     - [mkdir -p ~/.config/sway]
     - [mkdir -p ~/.config/i3]
-    - [mkdir -p ~/.config/termite]
     - [mkdir -p ~/.config/alacritty]
     - [mkdir -p ~/.config/zathura]
     - [mkdir -p ~/.config/mako]
@@ -21,11 +21,11 @@
 - link:
     ~/.zshrc: grml-etc-core/etc/zsh/zshrc
     ~/.zshrc.local: zshrc
+    ~/.zsh/zsh-autosuggestions: zsh-autosuggestions
     ~/.config/nvim/init.vim: nvimrc
     ~/.config/nvim/ftplugin: vim/ftplugin
     ~/.config/zathura/zathurarc: zathurarc
     ~/.config/base16-shell: base16-shell
-    ~/.config/base16-termite: base16-termite
     ~/.fzf: fzf
     ~/.tmux.conf: tmux.conf
     ~/.muttrc: muttrc
@@ -37,7 +37,6 @@
     ~/.config/sway/themes: base16-i3/colors
     ~/.config/i3/config: i3.conf
     ~/.xinitrc: xinitrc
-    ~/.config/termite/config: termite
     ~/.config/alacritty/alacritty.yml: alacritty.yml
     ~/.config/alacritty/colors: base16-alacritty/colors
     ~/.proxychains/.proxychains.conf: proxychains.conf
