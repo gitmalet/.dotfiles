@@ -26,7 +26,6 @@ Plug 'tpope/vim-sleuth'
 Plug 'itchyny/lightline.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
-Plug 'ntpeters/vim-better-whitespace'
 
 " More vim commands
 " Not used at the moment
@@ -37,7 +36,7 @@ Plug 'tpope/vim-commentary'
 
 " Autocomplete and language support
 Plug 'w0rp/ale'
-Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'honza/vim-snippets'
 
 " Search
@@ -49,7 +48,7 @@ Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'bohlender/vim-smt2'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
 
 " Prose
 Plug 'dbmrq/vim-ditto'
