@@ -55,8 +55,8 @@ zstyle ':prompt:grml:*:items:path' pre '%F{magenta}'
 zstyle ':prompt:grml:*:items:path' post '%f'
 
 # autosuggestions
-[ -f ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.sh ] \
-    && source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.sh
+[ -f ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ] \
+    && source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # fzf Completion
 [ -f ~/.fzf.zsh ] \
