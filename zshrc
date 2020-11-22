@@ -15,7 +15,7 @@ alias mutt="neomutt"
 # BackwardSeach
 bindkey '^R' history-incremental-pattern-search-backward
 
-export TERMINAL="termite"
+export TERMINAL="alacritty"
 export TERM="xterm-256color"
 export BROWSER="firefox"
 export EDITOR="nvim"
@@ -28,26 +28,20 @@ export FSTAR_HOME=/opt/fstar
 export KREMLIN_HOME=/usr/lib/kremlin
 
 # Wayland
-# export XKB_DEFAULT_LAYOUT=us
-# export XKB_DEFAULT_VARIANT=euro
-# export XKB_DEFAULT_MODEL=thinkpad
-# export XKB_DEFAULT_OPTIONS=caps:escape
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 # git-secret
 export SECRETS_EXTENSION=.gpg
+
+# Util options
+export LESS="--ignore-case --raw-control-chars"
+export PAGER="less"
 
 # Base16 Shell
 BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -n "$PS1" ] && \
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
         eval "$("$BASE16_SHELL/profile_helper.sh")"
-# Pure zsh theme
-autoload -U promptinit; promptinit
-prompt lean
 
 # fzf Completion
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# zsh-syntax-highlighting
-source ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

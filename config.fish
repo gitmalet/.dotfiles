@@ -27,6 +27,9 @@ set -x npm_config_prefix ~/.node_modules
 set -x LESS '--ignore-case --raw-control-chars'
 set -x PAGER 'less'
 
+# Git Secret
+set -x SECRETS_EXTENSION '.gpg'
+
 # Colors
 if status --is-interactive
     set BASE16_SHELL "$HOME/.config/base16-shell/"

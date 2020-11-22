@@ -14,8 +14,6 @@
     - [mkdir -p ~/.config/i3]
     - [mkdir -p ~/.config/termite]
     - [mkdir -p ~/.config/alacritty]
-    - [mkdir -p ~/.config/fish]
-    - [mkdir -p ~/.config/fish/functions]
     - [mkdir -p ~/.config/zathura]
     - [mkdir -p ~/.config/mako]
     - [mkdir -p ~/.proxychains]
@@ -43,9 +41,7 @@
     ~/.config/alacritty/alacritty.yml: alacritty.yml
     ~/.config/alacritty/colors: base16-alacritty/colors
     ~/.proxychains/.proxychains.conf: proxychains.conf
-    ~/.config/fish/config.fish: config.fish
     ~/.config/mako/config: mako
 
 - shell:
     - [~/.fzf/install --all --no-update-rc, Installing FZF]
-    - [fish -c 'fisher', Installing FZF]
