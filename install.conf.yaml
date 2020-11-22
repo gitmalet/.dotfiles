@@ -30,7 +30,6 @@
     ~/.config/base16-shell: base16-shell
     ~/.config/base16-termite: base16-termite
     ~/.fzf: fzf
-    ~/.zsh-syntax-highlighting: zsh-syntax-highlighting
     ~/.tmux.conf: tmux.conf
     ~/.muttrc: muttrc
     ~/.mutt/bindings.rc: mutt/bindings.rc
@@ -47,8 +46,6 @@
     ~/.config/alacritty/colors: base16-alacritty/colors
     ~/.proxychains/.proxychains.conf: proxychains.conf
     ~/.config/fish/config.fish: config.fish
-    ~/.config/fish/fishfile: fishfile
-    ~/.config/fish/functions/fisher.fish: fisher/fisher.fish
     ~/.config/mako/config: mako
 
 - shell:
