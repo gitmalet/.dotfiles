@@ -18,6 +18,8 @@ include themes/base16-atelier-heath.config
 ### Input configuration
 #
 input * xkb_layout "us,de"
+input * xkb_variant "euro"
+input * xkb_model "thinkpad"
 input * xkb_options "caps:escape"
 
 # Basics
