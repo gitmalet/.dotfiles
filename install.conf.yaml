@@ -23,7 +23,6 @@
 - link:
     ~/.zshrc: grml-etc-core/etc/zsh/zshrc
     ~/.zshrc.local: zshrc
-    ~/.zfunctions/prompt_lean_setup: lean/lean.plugin.zsh
     ~/.config/nvim/init.vim: nvimrc
     ~/.config/nvim/ftplugin: vim/ftplugin
     ~/.config/zathura/zathurarc: zathurarc
@@ -36,7 +35,6 @@
     ~/.mutt/colors.rc: mutt/colors.rc
     ~/.radare2rc: radare2rc
     ~/.gdbinit: gdbinit
-    ~/.gdbinit-gef.py: gef/gef.py
     ~/.config/sway/config: sway
     ~/.config/sway/themes: base16-i3/colors
     ~/.config/i3/config: i3.conf
