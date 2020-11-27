@@ -1,4 +1,4 @@
-  " vim:fdm=marker
+" vim:fdm=marker
 
   " Setup VimPlug {{{
   " If VimPlug is not installed, do it
@@ -35,6 +35,7 @@ Plug 'liuchengxu/vim-which-key'
 Plug 'w0rp/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sheerun/vim-polyglot'
+Plug 'honza/vim-snippets'
 
 " Prose
 Plug 'reedes/vim-wordy'
@@ -60,21 +61,15 @@ set colorcolumn=+1
 let g:mapleader = "\<space>"
 let g:maplocalleader = ','
 
-" Window splitting
-nmap <silent> <leader>- :wincmd s<CR>
-nmap <silent> <leader>\| :wincmd v<CR>
+" Windows 
+nmap <silent> <leader>w- :wincmd s<CR>
+nmap <silent> <leader>w\| :wincmd v<CR>
 nmap <silent> <leader>ws :wincmd s<CR>
 nmap <silent> <leader>wv :wincmd v<CR>
-
-" Window navigation with CTRL
-nmap <silent> <C-Up> :wincmd k<CR>
-nmap <silent> <C-Down> :wincmd j<CR>
-nmap <silent> <C-Left> :wincmd h<CR>
-nmap <silent> <C-Right> :wincmd l<CR>
-nmap <silent> <C-k> :wincmd k<CR>
-nmap <silent> <C-j> :wincmd j<CR>
-nmap <silent> <C-h> :wincmd h<CR>
-nmap <silent> <C-l> :wincmd l<CR>
+nmap <silent> <leader>wk :wincmd k<CR>
+nmap <silent> <leader>wj :wincmd j<CR>
+nmap <silent> <leader>wh :wincmd h<CR>
+nmap <silent> <leader>wl :wincmd l<CR>
 
 " Basic looks
 syntax on
@@ -162,7 +157,7 @@ let g:coc_global_extensions= [
 
 " Which keys {{{{
 " By default timeoutlen is 1000 ms
-set timeoutlen=300
+set timeoutlen=500
 
 nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
 nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
@@ -175,14 +170,14 @@ call which_key#register('<Space>', "g:which_key_map")
 let g:which_key_map =  {}
 
 let g:which_key_map.w = { 'name' : '+window' }
-let g:which_key_map.l = { 'name' : '+language' }
-let g:which_key_map.l.g = { 'name' : '+goto' }
 " }}}}
 
 " Options {{{{
 
 " ALE and CoC compatibility
 let g:ale_disable_lsp = 1
+
+let g:ale_set_loclist = 1
 
 " Better display for messages
 set cmdheight=2
@@ -256,22 +251,38 @@ else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
 
+" Use <C-l> to trigger snippet expand.
+imap <C-s> <Plug>(coc-snippets-expand)
+
+" Use <C-j> to select text for visual placeholder of snippet.
+vmap <C-j> <Plug>(coc-snippets-select)
+
+" Use <C-j> to jump to next placeholder
+let g:coc_snippet_next = '<c-j>'
+
+" Use <C-k> to jump to previous placeholder
+let g:coc_snippet_prev = '<c-k>'
+
+" Use <C-j> to both expand and jump (make expand higher priority.)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
+
+
+let g:which_key_map.l = { 'name' : '+language' }
+let g:which_key_map.l.g = { 'name' : '+goto' }
+let g:which_key_map.l.d = { 'name' : '+diagnostics' }
+
 " Diagnostics
-nmap <silent> <leader>lN <Plug>(ale_previous_wrap)
-nmap <silent> <leader>ln <Plug>(ale_next_wrap)
+nmap <silent> <leader>lds :lopen<CR>
+nmap <silent> <leader>ldn <Plug>(ale_next_wrap)
+nmap <silent> <leader>ldN <Plug>(ale_previous_wrap)
+nmap <silent> <leader>ldp <Plug>(ale_previous_wrap)
+nmap <silent> <leader>ldP <Plug>(ale_next_wrap)
 
 " Navigation
 nmap <silent> <leader>lgr <Plug>(coc-references)
 nmap <silent> <leader>lgd <Plug>(coc-definition)
-nmap <silent> <leader>lgy <Plug>(coc-type-definition)
+nmap <silent> <leader>lgt <Plug>(coc-type-definition)
 nmap <silent> <leader>lgi <Plug>(coc-implementation)
-
-" Snippets
-imap <C-l> <Plug>(coc-snippets-expand)
-vmap <C-j> <Plug>(coc-snippets-select)
-let g:coc_snippet_next = '<c-j>'
-let g:coc_snippet_prev = '<c-k>'
-imap <C-j> <Plug>(coc-snippets-expand-jump)
 
 let g:coc_snippet_next = '<tab>'
 
