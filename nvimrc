@@ -1,19 +1,19 @@
-" vim:fdm=marker
+  " vim:fdm=marker
 
-" Setup VimPlug {{{
-" If VimPlug is not installed, do it
-let bundleExists = 1
+  " Setup VimPlug {{{
+  " If VimPlug is not installed, do it
+  let bundleExists = 1
 
-if has("nvim")
-	if (!filereadable(expand("$HOME/.config/nvim/autoload/plug.vim")))
-		call system(expand("curl -fLo $HOME/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"))
-	endif
-else
-	if (!filereadable(expand("$HOME/.vim/autoload/plug.vim")))
-		call system(expand("curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"))
-	endif
-endif
-" }}}
+  if has("nvim")
+    if (!filereadable(expand("$HOME/.config/nvim/autoload/plug.vim")))
+      call system(expand("curl -fLo $HOME/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"))
+    endif
+  else
+    if (!filereadable(expand("$HOME/.vim/autoload/plug.vim")))
+      call system(expand("curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"))
+    endif
+  endif
+  " }}}
 
 " Get Plugins {{{
 call plug#begin('~/.config/nvim/plugged')
@@ -22,46 +22,31 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-sleuth'
 
-" Looks
-Plug 'itchyny/lightline.vim'
-Plug 'chriskempson/base16-vim'
-Plug 'jeffkreeftmeijer/vim-numbertoggle'
-
 " More vim commands
-" Not used at the moment
-" Plug 'tpope/vim-repeat'
-" Plug 'tpope/vim-surround'
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-commentary'
 
+" Looks
+Plug 'itchyny/lightline.vim'
+Plug 'chriskempson/base16-vim'
+
 " Autocomplete and language support
+Plug 'liuchengxu/vim-which-key'
 Plug 'w0rp/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'honza/vim-snippets'
-
-" Search
-Plug 'junegunn/fzf.vim'
-
-
-Plug 'vim-pandoc/vim-pandoc'
-Plug 'vim-pandoc/vim-pandoc-syntax'
-Plug 'bohlender/vim-smt2'
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'majutsushi/tagbar'
-" Plug 'sheerun/vim-polyglot'
+Plug 'sheerun/vim-polyglot'
 
 " Prose
-Plug 'dbmrq/vim-ditto'
 Plug 'reedes/vim-wordy'
 Plug 'reedes/vim-lexical'
 Plug 'reedes/vim-pencil'
-Plug 'reedes/vim-litecorrect'
 
 " Git
 Plug 'tpope/vim-fugitive'
 
 " Transparent GPG file handling
 Plug 'jamessan/vim-gnupg'
+
 call plug#end()
 filetype plugin indent on
 " }}}
@@ -72,11 +57,16 @@ set textwidth=80
 set colorcolumn=+1
 
 " Space is the leader
-:let mapleader = "\<space>"
+let g:mapleader = "\<space>"
+let g:maplocalleader = ','
+
 " Window splitting
-nmap <silent> <leader>- <C-w>s
-nmap <silent> <leader>\| <C-w>v
-" Window navigation like a sane person
+nmap <silent> <leader>- :wincmd s<CR>
+nmap <silent> <leader>\| :wincmd v<CR>
+nmap <silent> <leader>ws :wincmd s<CR>
+nmap <silent> <leader>wv :wincmd v<CR>
+
+" Window navigation with CTRL
 nmap <silent> <C-Up> :wincmd k<CR>
 nmap <silent> <C-Down> :wincmd j<CR>
 nmap <silent> <C-Left> :wincmd h<CR>
@@ -86,9 +76,9 @@ nmap <silent> <C-j> :wincmd j<CR>
 nmap <silent> <C-h> :wincmd h<CR>
 nmap <silent> <C-l> :wincmd l<CR>
 
-" Looks again
+" Basic looks
 syntax on
-set nu
+set number relativenumber
 set hidden
 set laststatus=2
 set concealcursor=""
@@ -98,15 +88,33 @@ set splitbelow
 set splitright
 
 " The holy Tabs vs Spaces war
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set noexpandtab
+" set tabstop=4
+" set softtabstop=4
+" set shiftwidth=4
+" set noexpandtab
 
 " }}}
 
 " Plugin specifics {{{
-" Base16
+
+" Prose {{{{
+augroup prose
+  au!
+  au FileType markdown,mkd,text,tex,plaintex call lexical#init()
+  au FileType markdown,mkd,text,tex,plaintex call pencil#init({'wrap': 'soft'})
+augroup END
+
+let g:wordy#ring = [
+  \ ['weak', 'problematic', 'redundant', 'puffery', 'weasel', 'being', 'passive-voice', ],
+  \ ['colloquial', 'idiomatic', 'similies', ],
+  \ ['contractions', 'opinion', 'vague-time', 'said-synonyms', ],
+  \ ['adjectives', 'adverbs', ]
+  \ ]
+
+let g:lexical#spelllang = ['en_us','en_gb','de_de', 'de_at']
+" }}}}
+
+" Base16 {{{{
 if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background
@@ -119,38 +127,69 @@ if filereadable(expand("~/.vimrc_background"))
   hi clear SpellRare
   hi SpellRare cterm=underline
 endif
+" }}}}
 
+" Lightline {{{{
+" Add diagnostic info for Lightline from CoC
+function! CocCurrentFunction()
+    return get(b:, 'coc_current_function', '')
+endfunction
 
-" fzf config
-set rtp+=~/.fzf
-
-" Show mappings
-nmap <leader><tab> <plug>(fzf-maps-n)
-nnoremap <leader>l? :call fzf#vim#maps('n')<cr>coc-
-
-" Prose
-augroup prose
-  au!
-  au FileType markdown,mkd,text,tex,plaintex call lexical#init()
-  au FileType markdown,mkd,text,tex,plaintex DittoOn
-  au FileType markdown,mkd,text,tex,plaintex call pencil#init({'wrap': 'soft'})
-  au FileType markdown,mkd,text,tex,plaintex call litecorrect#init()
-augroup END
-
-let g:wordy#ring = [
-  \ ['weak', 'problematic', 'redundant', 'puffery', 'weasel', 'being', 'passive-voice', ],
-  \ ['colloquial', 'idiomatic', 'similies', ],
-  \ ['contractions', 'opinion', 'vague-time', 'said-synonyms', ],
-  \ ['adjectives', 'adverbs', ]
-  \ ]
-
-let g:lexical#spelllang = ['en_us','en_gb','de_de', 'de_at']
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'cocstatus': 'coc#status',
+      \   'currentfunction': 'CocCurrentFunction'
+      \ },
+      \ }
+" }}}}
 
 " }}}
 
 " Completion {{{
+
+let g:coc_global_extensions= [
+      \ 'coc-json',
+      \ 'coc-python',
+      \ 'coc-vimlsp',
+      \ 'coc-lists',
+      \ 'coc-snippets'
+  \ ]
+
+" Which keys {{{{
+" By default timeoutlen is 1000 ms
+set timeoutlen=300
+
+nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
+nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
+
+" Make menu more descriptive
+
+call which_key#register('<Space>', "g:which_key_map")
+
+" Define prefix dictionary
+let g:which_key_map =  {}
+
+let g:which_key_map.w = { 'name' : '+window' }
+let g:which_key_map.l = { 'name' : '+language' }
+let g:which_key_map.l.g = { 'name' : '+goto' }
+" }}}}
+
+" Options {{{{
+
+" ALE and CoC compatibility
+let g:ale_disable_lsp = 1
+
 " Better display for messages
 set cmdheight=2
+
+" Some servers have issues with backup files, see #649.
+set nobackup
+set nowritebackup
 
 " Smaller updatetime for CursorHold & CursorHoldI
 set updatetime=300
@@ -158,29 +197,70 @@ set updatetime=300
 " don't give |ins-completion-menu| messages.
 set shortmess+=c
 
-" always show signcolumns
-set signcolumn=yes
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+if has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
 
-" Use <c-space> to trigger <tab> to navigate and <enter> to commit.
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
+" Remap <C-f> and <C-b> for scroll float windows/popups.
+if has('nvim-0.4.0') || has('patch-8.2.0750')
+  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+endif
+
+" }}}}
+
+" Mappings {{{{
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-inoremap <silent><expr> <c-space> coc#refresh()
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
 
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+" Diagnostics
+nmap <silent> <leader>lN <Plug>(ale_previous_wrap)
+nmap <silent> <leader>ln <Plug>(ale_next_wrap)
 
 " Navigation
-nmap <silent> <leader>lge <Plug>(coc-diagnostic-prev)
-nmap <silent> <leader>lGe <Plug>(coc-diagnostic-next)
 nmap <silent> <leader>lgr <Plug>(coc-references)
 nmap <silent> <leader>lgd <Plug>(coc-definition)
 nmap <silent> <leader>lgy <Plug>(coc-type-definition)
@@ -194,21 +274,6 @@ let g:coc_snippet_prev = '<c-k>'
 imap <C-j> <Plug>(coc-snippets-expand-jump)
 
 let g:coc_snippet_next = '<tab>'
-
-" Show Documentation
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-nnoremap <silent> <leader>lsd :call <SID>show_documentation()<CR>
-
-" Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Code Actions
 nmap <leader>lr <Plug>(coc-rename)
@@ -232,36 +297,13 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
 " use `:OR` for organize import of current buffer
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
-
-" Add diagnostic info for https://github.com/itchyny/lightline.vim
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'cocstatus': 'coc#status'
-      \ },
-      \ }
-
-let g:coc_global_extensions= [
-      \ 'coc-json',
-      \ 'coc-rls',
-      \ 'coc-python',
-      \ 'coc-git',
-      \ 'coc-vimlsp',
-      \ 'coc-lists',
-      \ 'coc-snippets'
-  \ ]
+" }}}}
 
 " }}}
 
 " NeoVim Setting {{{
 if has("nvim")
 	" True Colors
-	"let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
-	"let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
 	set clipboard+=unnamedplus
 	" Better substitute handling with preview
 	set inccommand=nosplit

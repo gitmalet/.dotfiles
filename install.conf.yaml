@@ -24,6 +24,7 @@
     ~/.zsh/zsh-autosuggestions: zsh-autosuggestions
     ~/.config/nvim/init.vim: nvimrc
     ~/.config/nvim/ftplugin: vim/ftplugin
+    ~/.config/nvim/coc-settings.json: vim/coc-settings.json
     ~/.config/zathura/zathurarc: zathurarc
     ~/.config/base16-shell: base16-shell
     ~/.fzf: fzf
