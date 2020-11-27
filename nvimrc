@@ -266,10 +266,11 @@ let g:coc_snippet_prev = '<c-k>'
 " Use <C-j> to both expand and jump (make expand higher priority.)
 imap <C-j> <Plug>(coc-snippets-expand-jump)
 
-
+" Language bindings
 let g:which_key_map.l = { 'name' : '+language' }
 let g:which_key_map.l.g = { 'name' : '+goto' }
-let g:which_key_map.l.d = { 'name' : '+diagnostics' }
+let g:which_key_map.l.d = { 'name' : '+diagnostic' }
+let g:which_key_map.l.a = { 'name' : '+action' }
 
 " Diagnostics
 nmap <silent> <leader>lds :lopen<CR>
@@ -284,21 +285,14 @@ nmap <silent> <leader>lgd <Plug>(coc-definition)
 nmap <silent> <leader>lgt <Plug>(coc-type-definition)
 nmap <silent> <leader>lgi <Plug>(coc-implementation)
 
-let g:coc_snippet_next = '<tab>'
-
 " Code Actions
-nmap <leader>lr <Plug>(coc-rename)
-nmap <leader>lf  <Plug>(coc-format-selected)
-nmap <leader>la  <Plug>(coc-codeaction-selected)
-nmap <leader>lal  <Plug>(coc-codeaction)
-nmap <leader>lfl  <Plug>(coc-fix-current)
+nmap <leader>lar <Plug>(coc-rename)
+nmap <leader>laf <Plug>(coc-format-selected)
+nmap <leader>laa <Plug>(coc-codeaction-selected)
+nmap <leader>lal <Plug>(coc-codeaction)
+nmap <leader>laf <Plug>(coc-fix-current)
 
-" Show things
-nnoremap <silent> <leader>lsd  :<C-u>CocList diagnostics<cr>
-nnoremap <silent> <leader>lse  :<C-u>CocList extensions<cr>
-nnoremap <silent> <leader>lsc  :<C-u>CocList commands<cr>
-nnoremap <silent> <leader>lso  :<C-u>CocList outline<cr>
-nnoremap <silent> <leader>lss  :<C-u>CocList -I symbols<cr>
+nmap <leader>lh :call CocActionAsync('doHover')<CR>
 
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
