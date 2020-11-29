@@ -9,7 +9,7 @@ export KEYTIMEOUT=1
 
 alias o="rifle"
 alias ipy="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
-alias emacs="emacsclient -nc"
+# alias emacs="emacsclient -nc"
 alias mutt="neomutt"
 
 # BackwardSeach
@@ -38,10 +38,10 @@ export LESS="--ignore-case --raw-control-chars"
 export PAGER="less"
 
 # Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/"
-[ -n "$PS1" ] && \
-    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-        eval "$("$BASE16_SHELL/profile_helper.sh")"
+# BASE16_SHELL="$HOME/.config/base16-shell/"
+# [ -n "$PS1" ] && \
+#     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+#         eval "$("$BASE16_SHELL/profile_helper.sh")"
 
 # GRML
 function virtual_env_prompt () {

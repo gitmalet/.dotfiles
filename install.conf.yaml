@@ -42,6 +42,7 @@
     ~/.config/alacritty/colors: base16-alacritty/colors
     ~/.proxychains/.proxychains.conf: proxychains.conf
     ~/.config/mako/config: mako
+    ~/.doom.d: doom.d
 
 - shell:
     - [~/.fzf/install --all --no-update-rc, Installing FZF]

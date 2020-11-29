@@ -82,6 +82,8 @@ set concealcursor=""
 set splitbelow
 set splitright
 
+let g:tex_flavor = "latex"
+
 " The holy Tabs vs Spaces war
 " set tabstop=4
 " set softtabstop=4
@@ -150,6 +152,7 @@ let g:lightline = {
 let g:coc_global_extensions= [
       \ 'coc-json',
       \ 'coc-python',
+      \ 'coc-texlab',
       \ 'coc-vimlsp',
       \ 'coc-lists',
       \ 'coc-snippets'
