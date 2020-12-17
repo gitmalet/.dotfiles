@@ -112,18 +112,16 @@ let g:lexical#spelllang = ['en_us','en_gb','de_de', 'de_at']
 " }}}}
 
 " Base16 {{{{
-if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
-  source ~/.vimrc_background
-  hi clear SpellBad
-  hi SpellBad cterm=underline
-  hi clear SpellCap
-  hi SpellCap cterm=underline
-  hi clear SpellLocal
-  hi SpellLocal cterm=underline
-  hi clear SpellRare
-  hi SpellRare cterm=underline
-endif
+let base16colorspace=256
+colorscheme base16-horizon-dark
+hi clear SpellBad
+hi SpellBad cterm=underline
+hi clear SpellCap
+hi SpellCap cterm=underline
+hi clear SpellLocal
+hi SpellLocal cterm=underline
+hi clear SpellRare
+hi SpellRare cterm=underline
 " }}}}
 
 " Lightline {{{{

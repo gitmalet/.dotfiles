@@ -10,7 +10,6 @@
     - [mkdir -p ~/.zsh]
     - [mkdir -p ~/.config/nvim]
     - [mkdir -p ~/.mutt]
-    - [mkdir -p ~/.config/base16-sway]
     - [mkdir -p ~/.config/sway]
     - [mkdir -p ~/.config/i3]
     - [mkdir -p ~/.config/alacritty]
@@ -26,7 +25,6 @@
     ~/.config/nvim/ftplugin: vim/ftplugin
     ~/.config/nvim/coc-settings.json: vim/coc-settings.json
     ~/.config/zathura/zathurarc: zathurarc
-    ~/.config/base16-shell: base16-shell
     ~/.fzf: fzf
     ~/.tmux.conf: tmux.conf
     ~/.muttrc: muttrc
@@ -35,7 +33,6 @@
     ~/.radare2rc: radare2rc
     ~/.gdbinit: gdbinit
     ~/.config/sway/config: sway
-    ~/.config/sway/themes: base16-i3/colors
     ~/.config/i3/config: i3.conf
     ~/.xinitrc: xinitrc
     ~/.config/alacritty/alacritty.yml: alacritty.yml
