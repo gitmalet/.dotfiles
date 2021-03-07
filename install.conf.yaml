@@ -12,6 +12,7 @@
     - [mkdir -p ~/.mutt]
     - [mkdir -p ~/.config/sway]
     - [mkdir -p ~/.config/i3]
+    - [mkdir -p ~/.config/i3status]
     - [mkdir -p ~/.config/alacritty]
     - [mkdir -p ~/.config/zathura]
     - [mkdir -p ~/.config/mako]
@@ -34,6 +35,7 @@
     ~/.gdbinit: gdbinit
     ~/.config/sway/config: sway
     ~/.config/i3/config: i3.conf
+    ~/.config/i3status/config: i3status.conf
     ~/.xinitrc: xinitrc
     ~/.config/alacritty/alacritty.yml: alacritty.yml
     ~/.config/alacritty/colors: base16-alacritty/colors

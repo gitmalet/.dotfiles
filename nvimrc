@@ -41,6 +41,7 @@ Plug 'honza/vim-snippets'
 Plug 'reedes/vim-wordy'
 Plug 'reedes/vim-lexical'
 Plug 'reedes/vim-pencil'
+Plug 'rhysd/vim-grammarous'
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -109,6 +110,7 @@ let g:wordy#ring = [
   \ ]
 
 let g:lexical#spelllang = ['en_us','en_gb','de_de', 'de_at']
+
 " }}}}
 
 " Base16 {{{{
