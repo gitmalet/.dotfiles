@@ -119,7 +119,7 @@ let g:lexical#spelllang = ['en_us','en_gb','de_de', 'de_at']
 
 " Base16 {{{{
 let base16colorspace=256
-colorscheme base16-horizon-dark
+colorscheme base16-atelier-heath
 hi clear SpellBad
 hi SpellBad cterm=underline
 hi clear SpellCap
