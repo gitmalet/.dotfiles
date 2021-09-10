@@ -33,4 +33,10 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 fi
 
 setxkbmap -option caps:escape
+
+# Open X for containers
+CONTAINER_XAUTH=/tmp/.Xcontainerauthority
+xauth nextract - "$DISPLAY" | sed -e 's/^..../ffff/' | xauth -f "$CONTAINER_XAUTH" nmerge -
+chmod 777 $CONTAINER_XAUTH
+
 exec i3

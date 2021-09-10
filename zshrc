@@ -2,6 +2,7 @@
 
 export FPATH="${FPATH}:${HOME}/.zfunctions"
 export PATH="${HOME}/.local/bin:${HOME}/.cargo/bin/:${HOME}/.node_modules/bin/:${PATH}"
+export HISTSIZE=50000
 
 # Vi-Mode
 bindkey -v

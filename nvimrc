@@ -36,6 +36,7 @@ Plug 'w0rp/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sheerun/vim-polyglot'
 Plug 'honza/vim-snippets'
+Plug 'chikamichi/mediawiki.vim'
 
 " Prose
 Plug 'reedes/vim-wordy'
@@ -48,6 +49,9 @@ Plug 'tpope/vim-fugitive'
 
 " Transparent GPG file handling
 Plug 'jamessan/vim-gnupg'
+
+" Fix browsers
+Plug 'raghur/vim-ghost', {'do': ':GhostInstall'}
 
 call plug#end()
 filetype plugin indent on
@@ -155,7 +159,8 @@ let g:coc_global_extensions= [
       \ 'coc-texlab',
       \ 'coc-vimlsp',
       \ 'coc-lists',
-      \ 'coc-snippets'
+      \ 'coc-snippets',
+      \ 'coc-clangd'
   \ ]
 
 " Which keys {{{{
