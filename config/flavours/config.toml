@@ -14,6 +14,11 @@ rewrite = true
 # No hook :(
 
 [[item]]
+file = "~/.dotfiles/config/alacritty/alacritty.yml"
+template = "alacritty"
+subtemplate = "default-256"
+
+[[item]]
 file = "~/.dotfiles/config/sway/theme"
 template = "sway"
 subtemplate = "colors"
@@ -38,6 +43,7 @@ hook = "i3-msg restart"
 light = false
 
 [[item]]
-file = "~/.dotfiles/config/alacritty/alacritty.yml"
-template = "alacritty"
-subtemplate = "default-256"
+file = "~/.dotfiles/config/dunst/dunstrc"
+template = "dunst"
+hook = "killall dunst"
+

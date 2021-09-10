@@ -15,7 +15,6 @@
     - [mkdir -p ~/.config/i3status]
     - [mkdir -p ~/.config/alacritty]
     - [mkdir -p ~/.config/zathura]
-    - [mkdir -p ~/.config/mako]
     - [mkdir -p ~/.config/dunst]
     - [mkdir -p ~/.config/flavours]
     - [mkdir -p ~/.proxychains]
@@ -43,7 +42,6 @@
     ~/.xinitrc: 
     ~/.proxychains/.proxychains.conf: 
     ~/.config/alacritty/alacritty.yml: config/alacritty/alacritty.yml
-    ~/.config/mako/config: config/mako/config
     ~/.config/dunst/dunstrc: config/dunst/dunstrc
     ~/.config/flavours/config.toml: config/flavours/config.toml
 
