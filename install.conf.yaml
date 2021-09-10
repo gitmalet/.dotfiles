@@ -21,27 +21,26 @@
 
 - link:
     ~/.zshrc.local: 
-    ~/.zsh/zsh-autosuggestions:
-    ~/.config/nvim/init.vim: 
-    ~/.config/nvim/ftplugin: 
-    ~/.config/nvim/coc-settings.json: 
-    ~/.config/zathura/zathurarc: 
+    ~/.zsh/zsh-autosuggestions: zsh/zsh-autosuggestions
+    ~/.config/nvim/init.vim: config/nvim/init.vim
+    ~/.config/nvim/ftplugin: config/nvim/ftplugin
+    ~/.config/nvim/coc-settings.json: config/nvim/coc-settings.json
+    ~/.config/zathura/zathurarc: config/zathura/zathurarc
     ~/.fzf: 
     ~/.tmux.conf: 
     ~/.muttrc: 
-    ~/.mutt/bindings.rc: 
-    ~/.mutt/colors.rc: 
+    ~/.mutt/bindings.rc: mutt/bindings.rc
+    ~/.mutt/colors.rc: mutt/colors.rc
     ~/.radare2rc: 
     ~/.gdbinit: 
     ~/.config/sway/config:
     ~/.config/i3/config: 
     ~/.config/i3status/config:
     ~/.xinitrc: 
-    ~/.config/alacritty/alacritty.yml: 
+    ~/.config/alacritty/alacritty.yml: config/alacritty/alacritty.yml
     ~/.proxychains/.proxychains.conf: 
     ~/.config/mako/config: 
     ~/.config/dunst/config: 
-    ~/.config/alacritty/colors: base16-alacritty/colors
 
 - shell:
     - [~/.fzf/install --all --no-update-rc, Installing FZF]
