@@ -28,7 +28,6 @@ Plug 'tpope/vim-commentary'
 
 " Looks
 Plug 'itchyny/lightline.vim'
-Plug 'chriskempson/base16-vim'
 
 " Autocomplete and language support
 Plug 'liuchengxu/vim-which-key'
@@ -119,7 +118,7 @@ let g:lexical#spelllang = ['en_us','en_gb','de_de', 'de_at']
 
 " Base16 {{{{
 let base16colorspace=256
-colorscheme base16-atelier-heath
+colorscheme base16
 hi clear SpellBad
 hi SpellBad cterm=underline
 hi clear SpellCap

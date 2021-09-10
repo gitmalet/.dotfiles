@@ -38,12 +38,6 @@ export SECRETS_EXTENSION=.gpg
 export LESS="--ignore-case --raw-control-chars"
 export PAGER="less"
 
-# Base16 Shell
-# BASE16_SHELL="$HOME/.config/base16-shell/"
-# [ -n "$PS1" ] && \
-#     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-#         eval "$("$BASE16_SHELL/profile_helper.sh")"
-
 # GRML
 function virtual_env_prompt () {
     REPLY=${VIRTUAL_ENV+(${VIRTUAL_ENV:t}) }
@@ -54,6 +48,11 @@ export GRML_NO_APT_ALIASES=1
 zstyle ':prompt:grml:left:setup' items rc virtual-env change-root path vcs percent
 zstyle ':prompt:grml:*:items:path' pre '%F{magenta}'
 zstyle ':prompt:grml:*:items:path' post '%f'
+
+# Theme
+[ -n "$PS1" ] \
+    && source ~/.zsh/theme.zsh
+
 
 # autosuggestions
 [ -f ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ] \

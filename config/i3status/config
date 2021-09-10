@@ -9,12 +9,22 @@
 general {
         interval = 5
         colors = true
-        color_good = "#efaf8e"
-        color_degraded = "#efb993"
-        color_bad = "#e93c58"
 }
 
-order += "ipv6"
+# Start flavours
+## Base16 Horizon Dark
+# Author: Michaël Ball (http://github.com/michael-ball/)
+#
+# You can use these variables anywhere in the i3status configuration file.
+
+general {
+       color_good = "#EFAF8E"
+       color_bad = "#E93C58"
+       color_degraded = "#EFB993"
+}
+# End flavours
+
+# order += "ipv6"
 order += "wireless _first_"
 order += "ethernet _first_"
 order += "battery 0"

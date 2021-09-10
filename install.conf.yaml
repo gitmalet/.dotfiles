@@ -17,13 +17,16 @@
     - [mkdir -p ~/.config/zathura]
     - [mkdir -p ~/.config/mako]
     - [mkdir -p ~/.config/dunst]
+    - [mkdir -p ~/.config/flavours]
     - [mkdir -p ~/.proxychains]
 
 - link:
     ~/.zshrc.local: 
+    ~/.zsh/theme.zsh: zsh/theme.zsh
     ~/.zsh/zsh-autosuggestions: zsh/zsh-autosuggestions
     ~/.config/nvim/init.vim: config/nvim/init.vim
     ~/.config/nvim/ftplugin: config/nvim/ftplugin
+    ~/.config/nvim/colors: config/nvim/colors
     ~/.config/nvim/coc-settings.json: config/nvim/coc-settings.json
     ~/.config/zathura/zathurarc: config/zathura/zathurarc
     ~/.fzf: 
@@ -42,6 +45,7 @@
     ~/.config/alacritty/alacritty.yml: config/alacritty/alacritty.yml
     ~/.config/mako/config: config/mako/config
     ~/.config/dunst/dunstrc: config/dunst/dunstrc
+    ~/.config/flavours/config.toml: config/flavours/config.toml
 
 - shell:
     - [~/.fzf/install --all --no-update-rc, Installing FZF]
