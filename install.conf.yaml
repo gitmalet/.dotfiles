@@ -34,6 +34,7 @@
     ~/.radare2rc: 
     ~/.gdbinit: 
     ~/.config/sway/config: config/sway/config
+    ~/.config/sway/theme: config/sway/theme
     ~/.config/i3/config: config/i3/config
     ~/.config/i3status/config: config/i3status/config
     ~/.xinitrc: 

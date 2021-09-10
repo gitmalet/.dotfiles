@@ -13,7 +13,7 @@ set $browser firefox
 set $font pango:SourceCodePro
 font $font 12
 
-include themes/base16-atelier-heath.config
+include theme
 
 ### Input configuration
 #
@@ -22,7 +22,7 @@ input "type:keyboard" {
     xkb_layout us,de
     xkb_variant euro
     xkb_model thinkpad
-    xkb_options caps:escape, compose:altgr
+    xkb_options caps:escape, grp:toggle
 }
 
 

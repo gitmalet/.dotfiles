@@ -1,3 +1,4 @@
+# Start flavours
 ## Base16 Atelier Heath
 # Author: Bram de Haan (http://atelierbramdehaan.nl)
 
@@ -17,3 +18,4 @@ set $base0C #159393
 set $base0D #516aec
 set $base0E #7b59c0
 set $base0F #cc33cc
+# End flavours

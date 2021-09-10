@@ -1,0 +1,20 @@
+# Commands go through zsh
+shell = "zsh -c '{}'"
+
+# Sway supports the default '#' comments, so it can be ommited
+# 'rewrite' is also ommited, as it defaults to false
+[[items]]
+file = "~/.dotfiles/config/sway/theme"
+template = "sway"
+subtemplate = "colors"
+hook = "swaymsg reload"
+# Swaymsg reload temporarily freezes input, so it's marked as not-light
+rewrite = true
+light = false
+
+[[items]]
+file = "~/.dotfiles/config/alacritty/alacritty.yml"
+template = "alacritty"
+# What if the configuration doesn't support '#' comments? Just change them!
+start= "# Start flavours"
+end = "# End flavours"

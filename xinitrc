@@ -33,7 +33,8 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 fi
 
 setxkbmap -option caps:escape
-setxkbmap -option compose:altgr
+setxkbmap -option compose:ralt
+setxkbmap -variaunt euro
 
 # Open X for containers
 CONTAINER_XAUTH=/tmp/.Xcontainerauthority
