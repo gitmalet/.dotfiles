@@ -20,28 +20,28 @@
     - [mkdir -p ~/.proxychains]
 
 - link:
-    ~/.zshrc.local: zshrc
-    ~/.zsh/zsh-autosuggestions: zsh-autosuggestions
-    ~/.config/nvim/init.vim: nvimrc
-    ~/.config/nvim/ftplugin: vim/ftplugin
-    ~/.config/nvim/coc-settings.json: vim/coc-settings.json
-    ~/.config/zathura/zathurarc: zathurarc
-    ~/.fzf: fzf
-    ~/.tmux.conf: tmux.conf
-    ~/.muttrc: muttrc
-    ~/.mutt/bindings.rc: mutt/bindings.rc
-    ~/.mutt/colors.rc: mutt/colors.rc
-    ~/.radare2rc: radare2rc
-    ~/.gdbinit: gdbinit
-    ~/.config/sway/config: sway
-    ~/.config/i3/config: i3.conf
-    ~/.config/i3status/config: i3status.conf
-    ~/.xinitrc: xinitrc
-    ~/.config/alacritty/alacritty.yml: alacritty.yml
+    ~/.zshrc.local: 
+    ~/.zsh/zsh-autosuggestions:
+    ~/.config/nvim/init.vim: 
+    ~/.config/nvim/ftplugin: 
+    ~/.config/nvim/coc-settings.json: 
+    ~/.config/zathura/zathurarc: 
+    ~/.fzf: 
+    ~/.tmux.conf: 
+    ~/.muttrc: 
+    ~/.mutt/bindings.rc: 
+    ~/.mutt/colors.rc: 
+    ~/.radare2rc: 
+    ~/.gdbinit: 
+    ~/.config/sway/config:
+    ~/.config/i3/config: 
+    ~/.config/i3status/config:
+    ~/.xinitrc: 
+    ~/.config/alacritty/alacritty.yml: 
+    ~/.proxychains/.proxychains.conf: 
+    ~/.config/mako/config: 
+    ~/.config/dunst/config: 
     ~/.config/alacritty/colors: base16-alacritty/colors
-    ~/.proxychains/.proxychains.conf: proxychains.conf
-    ~/.config/mako/config: mako
-    ~/.config/dunst/config: dunstrc
 
 - shell:
     - [~/.fzf/install --all --no-update-rc, Installing FZF]

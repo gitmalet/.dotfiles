@@ -4,9 +4,6 @@
 [submodule "dotbot"]
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
-[submodule "base16-alacritty"]
-	path = base16-alacritty
-	url = https://github.com/aaron-williamson/base16-alacritty.git
 [submodule "zsh-autosuggestions"]
-	path = zsh-autosuggestions
+	path = zsh/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions
