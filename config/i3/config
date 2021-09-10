@@ -175,6 +175,9 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+default_border none
+default_floating_border none
+
 # Start flavours
 ## Base16 Horizon Dark
 # Author: Michaël Ball (http://github.com/michael-ball/)
