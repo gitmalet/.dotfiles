@@ -17,11 +17,9 @@
     - [mkdir -p ~/.config/zathura]
     - [mkdir -p ~/.config/mako]
     - [mkdir -p ~/.config/dunst]
-    - [mkdir -p ~/.config/vdirsyncer]
     - [mkdir -p ~/.proxychains]
 
 - link:
-    ~/.zshrc: grml-etc-core/etc/zsh/zshrc
     ~/.zshrc.local: zshrc
     ~/.zsh/zsh-autosuggestions: zsh-autosuggestions
     ~/.config/nvim/init.vim: nvimrc
@@ -44,13 +42,6 @@
     ~/.proxychains/.proxychains.conf: proxychains.conf
     ~/.config/mako/config: mako
     ~/.config/dunst/config: dunstrc
-    ~/.config/vdirsyncer/config: vdirsyncer/config
-    ~/.config/vdirsyncer/get_data.sh: vdirsyncer/get_data.sh
-    ~/.config/vdirsyncer/caldav_url: vdirsyncer/caldav_url.secret
-    ~/.config/vdirsyncer/carddav_url: vdirsyncer/carddav_url.secret
-    ~/.config/vdirsyncer/nextcloud_user: vdirsyncer/nextcloud_user.secret
-    ~/.config/vdirsyncer/nextcloud_pass: vdirsyncer/nextcloud_pass.secret
-    ~/.doom.d: doom.d
 
 - shell:
     - [~/.fzf/install --all --no-update-rc, Installing FZF]
