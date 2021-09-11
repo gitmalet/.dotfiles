@@ -13,6 +13,7 @@
     - [mkdir -p ~/.config/sway]
     - [mkdir -p ~/.config/i3]
     - [mkdir -p ~/.config/i3status]
+    - [mkdir -p ~/.config/i3status-rust]
     - [mkdir -p ~/.config/alacritty]
     - [mkdir -p ~/.config/zathura]
     - [mkdir -p ~/.config/dunst]
@@ -28,7 +29,6 @@
     ~/.config/nvim/colors: config/nvim/colors
     ~/.config/nvim/coc-settings.json: config/nvim/coc-settings.json
     ~/.config/zathura/zathurarc: config/zathura/zathurarc
-    ~/.fzf: 
     ~/.tmux.conf: 
     ~/.muttrc: 
     ~/.mutt/bindings.rc: mutt/bindings.rc
@@ -39,11 +39,9 @@
     ~/.config/sway/theme: config/sway/theme
     ~/.config/i3/config: config/i3/config
     ~/.config/i3status/config: config/i3status/config
+    ~/.config/i3status-rust/config.toml: config/i3status-rust/config.toml
     ~/.xinitrc: 
     ~/.proxychains/.proxychains.conf: 
     ~/.config/alacritty/alacritty.yml: config/alacritty/alacritty.yml
     ~/.config/dunst/dunstrc: config/dunst/dunstrc
     ~/.config/flavours/config.toml: config/flavours/config.toml
-
-- shell:
-    - [~/.fzf/install --all --no-update-rc, Installing FZF]
