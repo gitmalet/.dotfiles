@@ -59,5 +59,6 @@ zstyle ':prompt:grml:*:items:path' post '%f'
     && source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # fzf Completion
-[ -f ~/.fzf.zsh ] \
-    && source ~/.fzf.zsh
+[ -d /usr/share/fzf ] \
+    && source /usr/share/fzf/key-bindings.zsh \
+    && source /usr/share/fzf/completion.zsh

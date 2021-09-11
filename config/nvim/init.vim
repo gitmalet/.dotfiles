@@ -18,24 +18,18 @@
 " Get Plugins {{{
 call plug#begin('~/.config/nvim/plugged')
 
-" Sensible
+" Standard plugins
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-sleuth'
 
 " More vim commands
 Plug 'godlygeek/tabular'
+Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 
 " Looks
-Plug 'itchyny/lightline.vim'
-
-" Autocomplete and language support
-Plug 'liuchengxu/vim-which-key'
-Plug 'w0rp/ale'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'sheerun/vim-polyglot'
-Plug 'honza/vim-snippets'
-Plug 'chikamichi/mediawiki.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Prose
 Plug 'reedes/vim-wordy'
@@ -45,12 +39,22 @@ Plug 'rhysd/vim-grammarous'
 
 " Git
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 
 " Transparent GPG file handling
 Plug 'jamessan/vim-gnupg'
 
-" Fix browsers
-Plug 'raghur/vim-ghost', {'do': ':GhostInstall'}
+" More syntax highlighting
+Plug 'sheerun/vim-polyglot'
+
+" Discoverability and productivity improvement
+Plug 'junegunn/fzf.vim'
+
+" Languageserver
+Plug 'liuchengxu/vim-which-key'
+Plug 'w0rp/ale'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'honza/vim-snippets'
 
 call plug#end()
 filetype plugin indent on
@@ -99,54 +103,32 @@ let g:tex_flavor = "latex"
 " Plugin specifics {{{
 
 " Prose {{{{
-augroup prose
-  au!
-  au FileType markdown,mkd,text,tex,plaintex call lexical#init()
-  au FileType markdown,mkd,text,tex,plaintex call pencil#init({'wrap': 'soft'})
-augroup END
-
-let g:wordy#ring = [
-  \ ['weak', 'problematic', 'redundant', 'puffery', 'weasel', 'being', 'passive-voice', ],
-  \ ['colloquial', 'idiomatic', 'similies', ],
-  \ ['contractions', 'opinion', 'vague-time', 'said-synonyms', ],
-  \ ['adjectives', 'adverbs', ]
-  \ ]
-
 let g:lexical#spelllang = ['en_us','en_gb','de_de', 'de_at']
 
+augroup prose
+  au!
+  au FileType help,markdown,mkd,text,tex,plaintex call lexical#init()
+  au FileType help,markdown,mkd,text,tex,plaintex call pencil#init({'wrap': 'soft'})
+augroup END
+
 " }}}}
 
-" Base16 {{{{
+" Looks {{{{
 let base16colorspace=256
 colorscheme base16
-hi clear SpellBad
-hi SpellBad cterm=underline
-hi clear SpellCap
-hi SpellCap cterm=underline
-hi clear SpellLocal
-hi SpellLocal cterm=underline
-hi clear SpellRare
-hi SpellRare cterm=underline
-" }}}}
+" hi clear SpellBad
+" hi SpellBad cterm=underline
+" hi clear SpellCap
+" hi SpellCap cterm=underline
+" hi clear SpellLocal
+" hi SpellLocal cterm=underline
+" hi clear SpellRare
+" hi SpellRare cterm=underline
 
-" Lightline {{{{
-" Add diagnostic info for Lightline from CoC
-function! CocCurrentFunction()
-    return get(b:, 'coc_current_function', '')
-endfunction
+let g:airline_theme='base16'
+let g:airline_powerline_fonts = 1
 
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'cocstatus': 'coc#status',
-      \   'currentfunction': 'CocCurrentFunction'
-      \ },
-      \ }
-" }}}}
+" " }}}}
 
 " }}}
 
