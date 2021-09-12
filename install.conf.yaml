@@ -24,6 +24,8 @@
     ~/.zshrc.local: 
     ~/.zsh/theme.zsh: zsh/theme.zsh
     ~/.zsh/zsh-autosuggestions: zsh/zsh-autosuggestions
+    ~/.zsh/zsh-completions: zsh/zsh-completions
+    ~/.zsh/zsh-syntax-highlighting: zsh/zsh-syntax-highlighting
     ~/.config/nvim/init.vim: config/nvim/init.vim
     ~/.config/nvim/ftplugin: config/nvim/ftplugin
     ~/.config/nvim/colors: config/nvim/colors

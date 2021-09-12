@@ -6,11 +6,11 @@
 
   if has("nvim")
     if (!filereadable(expand("$HOME/.config/nvim/autoload/plug.vim")))
-      call system(expand("curl -fLo $HOME/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"))
+      call system(expand("curl --proto-redir -all,https -fLo $HOME/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"))
     endif
   else
     if (!filereadable(expand("$HOME/.vim/autoload/plug.vim")))
-      call system(expand("curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"))
+      call system(expand("curl --proto-redir -all,https -fLo $HOME/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"))
     endif
   endif
   " }}}
@@ -134,7 +134,14 @@ nmap <leader>b :Buffers<CR>
 nmap <leader>c :Rg<CR>
 nmap <leader>l :Lines<CR>
 nmap <leader>s :Snippets<CR>
-imap <leader>s <c-o>:Snippets<CR>
+imap <c-s> <c-o>:Snippets<CR>
+
+" fzf completion
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-l> <plug>(fzf-complete-line)
+
+
 " }}}}
 
 " Prose {{{{

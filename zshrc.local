@@ -1,7 +1,6 @@
 # User configuration
 
-export FPATH="${FPATH}:${HOME}/.zfunctions"
-export PATH="${HOME}/.local/bin:${HOME}/.cargo/bin/:${HOME}/.node_modules/bin/:${PATH}"
+export PATH="${HOME}/.local/bin:${HOME}/.cargo/bin/:${PATH}"
 export HISTSIZE=50000
 
 # Vi-Mode
@@ -23,10 +22,6 @@ export EDITOR="nvim"
 export USE_EDITOR=$EDITOR
 export VISUAL=$EDITOR
 export DOWNLOADS="$HOME/Downloads"
-
-# FStar ecosystem
-export FSTAR_HOME=/opt/fstar
-export KREMLIN_HOME=/usr/lib/kremlin
 
 # Wayland
 export _JAVA_AWT_WM_NONREPARENTING=1
@@ -53,12 +48,19 @@ zstyle ':prompt:grml:*:items:path' post '%f'
 [ -n "$PS1" ] \
     && source ~/.zsh/theme.zsh
 
-
-# autosuggestions
-[ -f ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ] \
-    && source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-
 # fzf Completion
 [ -d /usr/share/fzf ] \
     && source /usr/share/fzf/key-bindings.zsh \
     && source /usr/share/fzf/completion.zsh
+
+# zsh-autosuggestions
+[ -f ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ] \
+    && source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# zsh-completions
+[ -f ~/.zsh/zsh-completions/src ] \
+    && fpath=(~/zsh/zsh-completions/src $fpath)
+
+# zsh-syntax-hightlighting
+[ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] \
+    && source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
