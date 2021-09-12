@@ -10,3 +10,9 @@
 [submodule "zsh/zsh-completions"]
 	path = zsh/zsh-completions
 	url = https://github.com/zsh-users/zsh-completions.git
+[submodule "zsh-defer"]
+	path = zsh-defer
+	url = https://github.com/romkatv/zsh-defer.git
+[submodule "zsh/zsh-defer"]
+	path = zsh/zsh-defer
+	url = https://github.com/romkatv/zsh-defer.git
