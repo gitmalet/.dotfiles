@@ -105,14 +105,14 @@ let g:tex_flavor = "latex"
 " Looks {{{{
 let base16colorspace=256
 colorscheme base16
-" hi clear SpellBad
-" hi SpellBad cterm=underline
-" hi clear SpellCap
-" hi SpellCap cterm=underline
-" hi clear SpellLocal
-" hi SpellLocal cterm=underline
-" hi clear SpellRare
-" hi SpellRare cterm=underline
+hi clear SpellBad
+hi SpellBad cterm=underline
+hi clear SpellCap
+hi SpellCap cterm=underline
+hi clear SpellLocal
+hi SpellLocal cterm=underline
+hi clear SpellRare
+hi SpellRare cterm=underline
 
 let g:airline_theme='base16'
 let g:airline_powerline_fonts = 1
