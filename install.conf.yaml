@@ -6,21 +6,23 @@
 
 - shell:
     - [git submodule update --init --recursive, Recursive submoduling]
-    - [mkdir -p ~/.zfunctions]
-    - [mkdir -p ~/.zsh]
-    - [mkdir -p ~/.config/nvim]
-    - [mkdir -p ~/.mutt]
-    - [mkdir -p ~/.config/sway]
-    - [mkdir -p ~/.config/i3]
-    - [mkdir -p ~/.config/i3status]
-    - [mkdir -p ~/.config/i3status-rust]
-    - [mkdir -p ~/.config/alacritty]
-    - [mkdir -p ~/.config/zathura]
-    - [mkdir -p ~/.config/dunst]
-    - [mkdir -p ~/.config/flavours]
-    - [mkdir -p ~/.proxychains]
+
+- create:
+    - ~/.zsh
+    - ~/.config/nvim
+    - ~/.config/sway
+    - ~/.config/i3
+    - ~/.config/i3status
+    - ~/.config/i3status-rust
+    - ~/.config/alacritty
+    - ~/.config/zathura
+    - ~/.config/dunst
+    - ~/.config/flavours
+    - ~/.mutt
+    - ~/.proxychains
 
 - link:
+    ~/.config/topgrade.toml: config/topgrade.toml
     ~/.zshrc.local: 
     ~/.zsh/theme.zsh: zsh/theme.zsh
     ~/.zsh/zsh-defer: zsh/zsh-defer
@@ -44,7 +46,7 @@
     ~/.config/i3status/config: config/i3status/config
     ~/.config/i3status-rust/config.toml: config/i3status-rust/config.toml
     ~/.xinitrc: 
-    ~/.proxychains/.proxychains.conf: 
+    ~/.proxychains/proxychains.conf: 
     ~/.config/alacritty/alacritty.yml: config/alacritty/alacritty.yml
     ~/.config/dunst/dunstrc: config/dunst/dunstrc
     ~/.config/flavours/config.toml: config/flavours/config.toml
