@@ -31,8 +31,8 @@ URxvt.keysym.M-u: perl:url-select:select_next
 ! Fonts
 
 !Source Code Pro
-URxvt.font: xft:Source Code Pro-12
-URxvt.boldFont: xft:Source Code Pro-12
+URxvt.font: xft:FiraCode-12
+URxvt.boldFont: xft:FiraCode-12
 URxvt.letterSpace: -1
 
 
