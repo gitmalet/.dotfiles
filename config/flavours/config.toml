@@ -54,3 +54,11 @@ file = "~/.dotfiles/config/dunst/dunstrc"
 template = "dunst"
 hook = "killall dunst"
 
+[[item]]
+file = "~/.dotfiles/Xresources"
+template = "xresources"
+subtemplate = "default-256"
+# What if the configuration doesn't support '#' comments? Just change them!
+start= "! Start flavours"
+end = "! End flavours"
+hook = "xrb -merge ~/.Xresources"

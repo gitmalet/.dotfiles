@@ -50,3 +50,4 @@
     ~/.config/alacritty/alacritty.yml: config/alacritty/alacritty.yml
     ~/.config/dunst/dunstrc: config/dunst/dunstrc
     ~/.config/flavours/config.toml: config/flavours/config.toml
+    ~/.Xresources: 
