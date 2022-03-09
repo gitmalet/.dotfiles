@@ -3,6 +3,9 @@
 export PATH="${HOME}/.local/bin:${HOME}/.cargo/bin/:${PATH}"
 export HISTSIZE=50000
 
+# OCaml
+[[ ! -r ${HOME}/.opam/opam-init/init.zsh ]] || source ${HOME}/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
 # Vi-Mode
 bindkey -v
 export KEYTIMEOUT=1
@@ -43,6 +46,7 @@ export GRML_NO_APT_ALIASES=1
 zstyle ':prompt:grml:left:setup' items rc virtual-env change-root path vcs percent
 zstyle ':prompt:grml:*:items:path' pre '%F{magenta}'
 zstyle ':prompt:grml:*:items:path' post '%f'
+
 
 # Theme
 [ -n "$PS1" ] \

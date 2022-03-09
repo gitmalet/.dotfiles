@@ -41,4 +41,6 @@ CONTAINER_XAUTH=/tmp/.Xcontainerauthority
 xauth nextract - "$DISPLAY" | sed -e 's/^..../ffff/' | xauth -f "$CONTAINER_XAUTH" nmerge -
 chmod 777 $CONTAINER_XAUTH
 
+autorandr -c
+
 exec i3

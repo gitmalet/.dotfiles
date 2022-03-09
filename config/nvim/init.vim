@@ -55,6 +55,7 @@ Plug 'w0rp/ale'
 Plug 'neovim/nvim-lspconfig'
 Plug 'honza/vim-snippets'
 Plug 'SirVer/ultisnips'
+Plug 'jceb/vim-orgmode'
 
 call plug#end()
 filetype plugin indent on
@@ -132,7 +133,7 @@ omap <leader><tab> <plug>(fzf-maps-o)
 nmap <leader>f :Files<CR>
 nmap <leader>b :Buffers<CR>
 nmap <leader>c :Rg<CR>
-nmap <leader>l :Lines<CR>
+" nmap <leader>l :Lines<CR>
 nmap <leader>s :Snippets<CR>
 imap <c-s> <c-o>:Snippets<CR>
 

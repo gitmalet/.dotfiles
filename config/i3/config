@@ -62,6 +62,11 @@ font $font 10
 
     # exit sway (logs you out of your wayland session)
     bindsym $mod+Shift+e exit
+
+    # Screenshots
+    bindsym Print exec --no-startup-id maim "/home/$USER/screenshots/full-$(date -Isecond).png"
+    bindsym $mod+Print exec --no-startup-id maim -s "/home/$USER/screenshots/selection-$(date -Isecond).png"
+
 #
 # Moving around:
 #
