@@ -28,10 +28,13 @@
     ~/.zsh/zsh-autosuggestions: zsh/zsh-autosuggestions
     ~/.zsh/zsh-completions: zsh/zsh-completions
     ~/.zsh/zsh-syntax-highlighting: zsh/zsh-syntax-highlighting
-    ~/.config/nvim/init.vim: config/nvim/init.vim
-    ~/.config/nvim/ftplugin: config/nvim/ftplugin
-    ~/.config/nvim/colors: config/nvim/colors
-    ~/.config/nvim/coc-settings.json: config/nvim/coc-settings.json
+    ~/.config/nvim/: 
+      glob: true
+      path: config/nvim/*
+    # ~/.config/nvim/init.vim: config/nvim/init.vim
+    # ~/.config/nvim/ftplugin: config/nvim/ftplugin
+    # ~/.config/nvim/colors: config/nvim/colors
+    # ~/.config/nvim/coc-settings.json: config/nvim/coc-settings.json
     ~/.config/zathura/zathurarc: config/zathura/zathurarc
     ~/.tmux.conf: 
     ~/.muttrc: 
