@@ -44,11 +44,12 @@ Plug 'airblade/vim-gitgutter'
 " Transparent GPG file handling
 Plug 'jamessan/vim-gnupg'
 
-" More 
+" Syntax Highlighting
 " Plug 'sheerun/vim-polyglot'
 if has("nvim")
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 endif
+Plug 'lifepillar/vim-formal-package', {'do': './convert_to_plugin.sh'}
 
 " Discoverability and productivity improvement
 Plug 'junegunn/fzf.vim'
@@ -56,14 +57,17 @@ Plug 'junegunn/fzf.vim'
 " Heavy language support
 Plug 'w0rp/ale'
 Plug 'neovim/nvim-lspconfig'
-Plug 'honza/vim-snippets'
-Plug 'SirVer/ultisnips'
+
 Plug 'nvim-orgmode/orgmode'
+Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
-Plug 'hrsh7th/nvim-cmp'
+Plug 'dmitmel/cmp-digraphs'
+
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/cmp-vsnip'
 
 call plug#end()
 filetype plugin indent on
@@ -79,14 +83,8 @@ let g:mapleader = "\<space>"
 let g:maplocalleader = ','
 
 " Windows 
-nmap <silent> <leader>w- :wincmd s<CR>
-nmap <silent> <leader>w\| :wincmd v<CR>
-nmap <silent> <leader>ws :wincmd s<CR>
-nmap <silent> <leader>wv :wincmd v<CR>
-nmap <silent> <leader>wk :wincmd k<CR>
-nmap <silent> <leader>wj :wincmd j<CR>
-nmap <silent> <leader>wh :wincmd h<CR>
-nmap <silent> <leader>wl :wincmd l<CR>
+nmap <silent> <C-W>- :wincmd s<CR>
+nmap <silent> <C-W>\| :wincmd v<CR>
 
 " Basic looks
 syntax on
@@ -173,7 +171,11 @@ runtime treesitter.lua
 runtime orgmode.lua
 
 " nvim-cmp
+set completeopt=menu,menuone,noselect
 runtime cmp.lua
+
+" LSP Config
+runtime lspconfig.lua
 
 " Disable ALE lsp
 let g:ale_disable_lsp = 1
@@ -196,7 +198,6 @@ else
 endif
 
 
-runtime lspconfig.lua
 
 " Use <C-j> to both expand and jump (make expand higher priority.)
 " imap <C-j> <Plug>(coc-snippets-expand-jump)
@@ -219,4 +220,3 @@ if has("nvim")
 	" Better substitute handling with preview
 	set inccommand=nosplit
 endif
-" }}}

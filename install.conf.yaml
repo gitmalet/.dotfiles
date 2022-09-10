@@ -10,6 +10,7 @@
 - create:
     - ~/.zsh
     - ~/.config/nvim
+    - ~/.config/emacs
     - ~/.config/sway
     - ~/.config/i3
     - ~/.config/i3status
@@ -22,33 +23,32 @@
 
 - link:
     ~/.config/topgrade.toml: config/topgrade.toml
-    ~/.zshrc.local: 
+    ~/.zshrc.local:
     ~/.zsh/theme.zsh: zsh/theme.zsh
     ~/.zsh/zsh-defer: zsh/zsh-defer
     ~/.zsh/zsh-autosuggestions: zsh/zsh-autosuggestions
     ~/.zsh/zsh-completions: zsh/zsh-completions
     ~/.zsh/zsh-syntax-highlighting: zsh/zsh-syntax-highlighting
-    ~/.config/nvim/: 
+    ~/.config/nvim/:
       glob: true
       path: config/nvim/*
-    # ~/.config/nvim/init.vim: config/nvim/init.vim
-    # ~/.config/nvim/ftplugin: config/nvim/ftplugin
-    # ~/.config/nvim/colors: config/nvim/colors
-    # ~/.config/nvim/coc-settings.json: config/nvim/coc-settings.json
+    ~/.config/emacs/:
+      glob: true
+      path: config/emacs/*
     ~/.config/zathura/zathurarc: config/zathura/zathurarc
-    ~/.tmux.conf: 
-    ~/.muttrc: 
+    ~/.tmux.conf:
+    ~/.muttrc:
     ~/.mutt:
-    ~/.radare2rc: 
-    ~/.gdbinit: 
+    ~/.radare2rc:
+    ~/.gdbinit:
     ~/.config/sway/config: config/sway/config
     ~/.config/sway/theme: config/sway/theme
     ~/.config/i3/config: config/i3/config
     ~/.config/i3status/config: config/i3status/config
     ~/.config/i3status-rust/config.toml: config/i3status-rust/config.toml
-    ~/.xinitrc: 
-    ~/.proxychains/proxychains.conf: 
+    ~/.xinitrc:
+    ~/.proxychains/proxychains.conf:
     ~/.config/alacritty/alacritty.yml: config/alacritty/alacritty.yml
     ~/.config/dunst/dunstrc: config/dunst/dunstrc
     ~/.config/flavours/config.toml: config/flavours/config.toml
-    ~/.Xresources: 
+    ~/.Xresources:
