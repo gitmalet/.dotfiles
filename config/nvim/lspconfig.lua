@@ -38,8 +38,7 @@ local lsp_flags = {
   debounce_text_changes = 150,
 }
 
-
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 require('lspconfig')['rust_analyzer'].setup{
     on_attach = on_attach,
@@ -62,8 +61,16 @@ require('lspconfig')['texlab'].setup{
     capabilities = capabilities,
 }
 
-require('lspconfig')['leanls'].setup{
-    on_attach = on_attach,
-    flags = lsp_flags,
-    capabilities = capabilities,
+-- require('lspconfig')['leanls'].setup{
+--     on_attach = on_attach,
+--     flags = lsp_flags,
+--     capabilities = capabilities,
+-- }
+
+-- Enable lean.nvim, and enable abbreviations and mappings
+require('lean').setup{
+    abbreviations = { builtin = true },
+    lsp = { on_attach = on_attach },
+    lsp3 = { on_attach = on_attach },
+    mappings = true,
 }

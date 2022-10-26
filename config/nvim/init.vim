@@ -21,6 +21,7 @@ call plug#begin('~/.config/nvim/plugged')
 " Standard plugins
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-sleuth'
+Plug 'nvim-lua/plenary.nvim'
 
 " More vim commands
 Plug 'godlygeek/tabular'
@@ -48,6 +49,8 @@ Plug 'jamessan/vim-gnupg'
 " Plug 'sheerun/vim-polyglot'
 if has("nvim")
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+  Plug 'nvim-treesitter/nvim-treesitter-context'
 endif
 Plug 'lifepillar/vim-formal-package', {'do': './convert_to_plugin.sh'}
 
@@ -58,16 +61,21 @@ Plug 'junegunn/fzf.vim'
 Plug 'w0rp/ale'
 Plug 'neovim/nvim-lspconfig'
 
-Plug 'nvim-orgmode/orgmode'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/cmp-nvim-lsp-document-symbol'
+Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
 Plug 'dmitmel/cmp-digraphs'
 
 Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/cmp-vsnip'
+
+Plug 'nvim-orgmode/orgmode'
+Plug 'Julian/lean.nvim'
+
 
 call plug#end()
 filetype plugin indent on
