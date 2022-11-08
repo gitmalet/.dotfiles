@@ -24,11 +24,7 @@
 - link:
     ~/.config/topgrade.toml: config/topgrade.toml
     ~/.zshrc.local:
-    ~/.zsh/theme.zsh: zsh/theme.zsh
-    ~/.zsh/zsh-defer: zsh/zsh-defer
-    ~/.zsh/zsh-autosuggestions: zsh/zsh-autosuggestions
-    ~/.zsh/zsh-completions: zsh/zsh-completions
-    ~/.zsh/zsh-syntax-highlighting: zsh/zsh-syntax-highlighting
+    ~/.zsh:
     ~/.config/nvim/:
       glob: true
       path: config/nvim/*

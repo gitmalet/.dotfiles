@@ -117,7 +117,10 @@ bindsym $mod+Shift+i move scratchpad
 bindsym $mod+i scratchpad show
 
 ### Output configuration
-# output eDP-1 resolution 1920x1080 position 0,0
+output eDP-1 resolution 1920x1080 position 0,0
+output DP-4 resolution 2560x1440 position 1920,0
+output HDMI-A-2 resolution 3840x2160 position 4480,0
+output HDMI-A-2 scale 2
 
 # output HDMI-A-2 resolution 1920x1080 position 1920,0
 # font $font 10
