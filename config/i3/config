@@ -52,7 +52,8 @@ font $font 10
     bindsym $mod+b exec $browser
 
     # lock screen
-    bindsym $mod+q exec physlock -s
+    bindsym $mod+q exec i3lock & sleep 5 && xset s dpms force off
+
 
     # kill focused window
     bindsym $mod+Shift+q kill
