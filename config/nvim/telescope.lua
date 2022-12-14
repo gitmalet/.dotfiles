@@ -1,0 +1,1 @@
+/home/malet/.dotfiles/config/nvim/telescope.lua

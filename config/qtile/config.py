@@ -1,0 +1,1 @@
+/home/malet/.dotfiles/config/qtile/config.py

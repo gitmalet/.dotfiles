@@ -1,19 +1,19 @@
-## Base16 Horizon Dark
-# Author: Michaël Ball (http://github.com/michael-ball/)
+## Base16 Dracula
+# Author: Mike Barkmin (http://github.com/mikebarkmin) based on Dracula Theme (http://github.com/dracula)
 
-set $base00 #1C1E26
-set $base01 #232530
-set $base02 #2E303E
-set $base03 #6F6F70
-set $base04 #9DA0A2
-set $base05 #CBCED0
-set $base06 #DCDFE4
-set $base07 #E3E6EE
-set $base08 #E93C58
-set $base09 #E58D7D
-set $base0A #EFB993
-set $base0B #EFAF8E
-set $base0C #24A8B4
-set $base0D #DF5273
-set $base0E #B072D1
-set $base0F #E4A382
+set $base00 #282936
+set $base01 #3a3c4e
+set $base02 #4d4f68
+set $base03 #626483
+set $base04 #62d6e8
+set $base05 #e9e9f4
+set $base06 #f1f2f8
+set $base07 #f7f7fb
+set $base08 #ea51b2
+set $base09 #b45bcf
+set $base0A #00f769
+set $base0B #ebff87
+set $base0C #a1efe4
+set $base0D #62d6e8
+set $base0E #b45bcf
+set $base0F #00f769

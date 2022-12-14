@@ -44,3 +44,4 @@ chmod 777 $CONTAINER_XAUTH
 autorandr -c
 
 exec i3
+# exec qtile start

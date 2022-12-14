@@ -2,21 +2,21 @@
 # vi:syntax=toml
 
 # base16-i3status-rust (https://github.com/mystfox/base16-i3status-rust)
-# Horizon Dark by Michaël Ball (http://github.com/michael-ball/)
+# Dracula by Mike Barkmin (http://github.com/mikebarkmin) based on Dracula Theme (http://github.com/dracula)
 
 [theme]
 name = "solarized-dark"
 [theme.overrides]
-idle_bg = "#1C1E26"
-idle_fg = "#CBCED0"
-info_bg = "#24A8B4"
-info_fg = "#1C1E26"
-good_bg = "#EFAF8E"
-good_fg = "#1C1E26"
-warning_bg = "#EFB993"
-warning_fg = "#1C1E26"
-critical_bg = "#E93C58"
-critical_fg = "#1C1E26"
+idle_bg = "#282936"
+idle_fg = "#e9e9f4"
+info_bg = "#a1efe4"
+info_fg = "#282936"
+good_bg = "#ebff87"
+good_fg = "#282936"
+warning_bg = "#00f769"
+warning_fg = "#282936"
+critical_bg = "#ea51b2"
+critical_fg = "#282936"
 # The rest of the theme settings are left at default.
 # End flavours
 

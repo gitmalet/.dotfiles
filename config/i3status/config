@@ -12,15 +12,15 @@ general {
 }
 
 # Start flavours
-## Base16 Horizon Dark
-# Author: Michaël Ball (http://github.com/michael-ball/)
+## Base16 Dracula
+# Author: Mike Barkmin (http://github.com/mikebarkmin) based on Dracula Theme (http://github.com/dracula)
 #
 # You can use these variables anywhere in the i3status configuration file.
 
 general {
-       color_good = "#EFAF8E"
-       color_bad = "#E93C58"
-       color_degraded = "#EFB993"
+       color_good = "#ebff87"
+       color_bad = "#ea51b2"
+       color_degraded = "#00f769"
 }
 # End flavours
 

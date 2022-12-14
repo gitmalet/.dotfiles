@@ -12,7 +12,7 @@ export KEYTIMEOUT=1
 
 alias o="rifle"
 alias ipy="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
-# alias emacs="emacsclient -nc"
+alias emacs="emacsclient -nc"
 alias mutt="neomutt"
 
 # BackwardSeach
