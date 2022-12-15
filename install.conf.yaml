@@ -3,6 +3,7 @@
         relink: true
         create: true
 
+
 - clean: ['~']
 
 - link:
@@ -13,13 +14,14 @@
       path: config/*
       relink: true
       exclude: [ config/nvim ]
+    ~/.config/nvim:
+      glob: true
+      path: config/nvim/*
+      relink: true
     ~/.spacemacs:
     ~/.tmux.conf:
-    ~/.muttrc:
-    ~/.mutt:
     ~/.radare2rc:
     ~/.gdbinit:
     ~/.xinitrc:
     ~/.proxychains/proxychains.conf:
-    ~/.emacs.d/private: emacs.d/private
     ~/.Xresources:
