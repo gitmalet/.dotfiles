@@ -7,6 +7,7 @@ import subprocess
 from libqtile import backend, bar, layout, widget, qtile, hook
 from libqtile.config import Click, Drag, Group, KeyChord, Key, Match, Screen
 from libqtile.command import lazy
+from libqtile.backend.wayland import InputConfig
 
 mod = "mod4"
 terminal = "alacritty"
@@ -15,8 +16,8 @@ browser = "firefox"
 keys = [
     Key([mod], "Return", lazy.spawn(terminal), desc="Terminal"),
     Key([mod], "b", lazy.spawn(browser), desc="Browser"),
-    Key([mod], "Space", lazy.spawn("rofi -show combi -combi-modes window,run,ssh"), desc="App and Window Launcher"),
-    Key([mod], "d", lazy.spawn("rofi -show run"), desc="App Launcher"),
+    Key([mod], "Space", lazy.spawn("rofi -show combi -combi-modes window,run,ssh -sort"), desc="App and Window Launcher"),
+    Key([mod], "d", lazy.spawn("rofi -show run -sort"), desc="App Launcher"),
     Key([mod], "q", lazy.spawn("physlock -s"), desc="Lock screen"),
     Key([mod, "shift"], "q", lazy.window.kill(), desc="Close focused window"),
     Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload configuration"),
@@ -71,6 +72,22 @@ keys = [
         lazy.layout.up(),
         desc="Move focus up"
         ),
+    Key([mod], "Left",
+        lazy.layout.left(),
+        desc="Move focus to left"
+        ),
+    Key([mod], "Right",
+        lazy.layout.right(),
+        desc="Move focus to right"
+        ),
+    Key([mod], "Down",
+        lazy.layout.down(),
+        desc="Move focus down"
+        ),
+    Key([mod], "Up",
+        lazy.layout.up(),
+        desc="Move focus up"
+        ),
 
     # Move focused window
     Key([mod, "shift"], "h",
@@ -86,6 +103,22 @@ keys = [
         desc="Move window down"
         ),
     Key([mod, "shift"], "k",
+        lazy.layout.shuffle_up(),
+        desc="Move window up"
+        ),
+    Key([mod, "shift"], "Left",
+        lazy.layout.shuffle_left(),
+        desc="Move window left"
+        ),
+    Key([mod, "shift"], "Right",
+        lazy.layout.shuffle_right(),
+        desc="Move window right"
+        ),
+    Key([mod, "shift"], "Down",
+        lazy.layout.shuffle_down(),
+        desc="Move window down"
+        ),
+    Key([mod, "shift"], "Up",
         lazy.layout.shuffle_up(),
         desc="Move window up"
         ),
@@ -111,6 +144,22 @@ keys = [
         lazy.layout.normalize(),
         desc="Reset all window sizes"
         ),
+    Key([mod, "control"], "Left",
+        lazy.layout.grow_left(),
+        desc="Grow window left"
+        ),
+    Key([mod, "control"], "Right",
+        lazy.layout.grow_right(),
+        desc="Grow window right"
+        ),
+    Key([mod, "control"], "Down",
+        lazy.layout.grow_down(),
+        desc="Grow window down"
+        ),
+    Key([mod, "control"], "Up",
+        lazy.layout.grow_up(),
+        desc="Grow window up"
+        ),
 
     Key([mod, "shift"], "Space",
         lazy.window.toggle_floating(),
@@ -125,24 +174,28 @@ keys = [
     ], name="Screen Mode"),
 ]
 
+wl_input_rules = {
+    "type:keyboard": InputConfig(kb_layout="us,de", kb_variant="euro", kb_options="caps:escape,compose:ralt")
+}
+
 groups = [Group(str(i)) for i in range(1,10)]
 
-for i in groups:
+for (i, g) in enumerate(groups):
     keys.extend(
         [
             # mod + letter of group = switch to group
             Key(
                 [mod],
-                i.name,
-                lazy.group[i.name].toscreen(),
-                desc="Switch to group {}".format(i.name),
+                str(i+1),
+                lazy.group[g.name].toscreen(),
+                desc="Switch to group {}".format(g.name),
             ),
             # mod + shift + letter of group = switch to & move focused window to group
             Key(
                 [mod, "shift"],
-                i.name,
-                lazy.window.togroup(i.name, switch_group=True),
-                desc="Switch to & move focused window to group {}".format(i.name),
+                str(i+1),
+                lazy.window.togroup(g.name, switch_group=True),
+                desc="Switch to & move focused window to group {}".format(g.name),
             ),
             # Or, use below if you prefer not to switch to that group.
             # # mod1 + shift + letter of group = move focused window to group
@@ -162,7 +215,7 @@ colors = list(load_colors(resources)) + ['#ffffff']
 
 layout_theme = {"border_width": 1,
                 "margin": 0,
-                "border_focus": colors[9],
+                "border_focus": colors[14],
                 "border_normal": colors[0],
                 }
 
@@ -186,9 +239,10 @@ layouts = [
 
 
 widget_defaults = dict(
-    font="Source Code Pro",
-    fontsize=12,
+    font="SauceCodePro Nerd Font",
+    fontsize=13,
     padding=5,
+    foreground = colors[5],
 )
 extension_defaults = widget_defaults.copy()
 
@@ -202,9 +256,9 @@ screens = [
                 widget.GroupBox(
                     active = colors[7],
                     inactive = colors[3],
-                    this_current_screen_border = colors[9],
+                    this_current_screen_border = colors[14],
                     this_screen_border = colors[0],
-                    other_current_screen_border = colors[9],
+                    other_current_screen_border = colors[14],
                     other_screen_border = colors[0],
 
                 ),

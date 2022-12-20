@@ -2,21 +2,21 @@
 # vi:syntax=toml
 
 # base16-i3status-rust (https://github.com/mystfox/base16-i3status-rust)
-# Dracula by Mike Barkmin (http://github.com/mikebarkmin) based on Dracula Theme (http://github.com/dracula)
+# Atelier Cave by Bram de Haan (http://atelierbramdehaan.nl)
 
 [theme]
 name = "solarized-dark"
 [theme.overrides]
-idle_bg = "#282936"
-idle_fg = "#e9e9f4"
-info_bg = "#a1efe4"
-info_fg = "#282936"
-good_bg = "#ebff87"
-good_fg = "#282936"
-warning_bg = "#00f769"
-warning_fg = "#282936"
-critical_bg = "#ea51b2"
-critical_fg = "#282936"
+idle_bg = "#19171c"
+idle_fg = "#8b8792"
+info_bg = "#398bc6"
+info_fg = "#19171c"
+good_bg = "#2a9292"
+good_fg = "#19171c"
+warning_bg = "#a06e3b"
+warning_fg = "#19171c"
+critical_bg = "#be4678"
+critical_fg = "#19171c"
 # The rest of the theme settings are left at default.
 # End flavours
 

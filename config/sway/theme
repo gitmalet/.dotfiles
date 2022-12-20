@@ -1,19 +1,19 @@
-## Base16 Dracula
-# Author: Mike Barkmin (http://github.com/mikebarkmin) based on Dracula Theme (http://github.com/dracula)
+## Base16 Atelier Cave
+# Author: Bram de Haan (http://atelierbramdehaan.nl)
 
-set $base00 #282936
-set $base01 #3a3c4e
-set $base02 #4d4f68
-set $base03 #626483
-set $base04 #62d6e8
-set $base05 #e9e9f4
-set $base06 #f1f2f8
-set $base07 #f7f7fb
-set $base08 #ea51b2
-set $base09 #b45bcf
-set $base0A #00f769
-set $base0B #ebff87
-set $base0C #a1efe4
-set $base0D #62d6e8
-set $base0E #b45bcf
-set $base0F #00f769
+set $base00 #19171c
+set $base01 #26232a
+set $base02 #585260
+set $base03 #655f6d
+set $base04 #7e7887
+set $base05 #8b8792
+set $base06 #e2dfe7
+set $base07 #efecf4
+set $base08 #be4678
+set $base09 #aa573c
+set $base0A #a06e3b
+set $base0B #2a9292
+set $base0C #398bc6
+set $base0D #576ddb
+set $base0E #955ae7
+set $base0F #bf40bf

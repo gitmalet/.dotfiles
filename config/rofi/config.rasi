@@ -1,1 +1,14 @@
-/home/malet/.dotfiles/config/rofi/config.rasi
+configuration {
+    icon-theme:          "Papirus-Dark";
+    drun-display-format: "{icon} {name}";
+    threads:             0;
+    scroll-method:       0;
+    disable-history:     true;
+    fullscreen:          false;
+    hide-scrollbar:      true;
+    run-command: "zsh -i -c '{cmd}'";
+    run-shell-command: "alacritty -e zsh -i -c '{cmd}'";
+    font: "SauceCodePro Nerd Font 12";
+}
+
+@import "~/.config/rofi/themes/run.rasi"
