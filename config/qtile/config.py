@@ -144,6 +144,10 @@ keys = [
         lazy.layout.normalize(),
         desc="Reset all window sizes"
         ),
+    Key([mod], "m",
+        lazy.layout.maximize(),
+        desc="Maximize current window sizes"
+        ),
     Key([mod, "control"], "Left",
         lazy.layout.grow_left(),
         desc="Grow window left"
@@ -223,6 +227,7 @@ layout_theme = {"border_width": 1,
 layouts = [
     layout.Columns(**layout_theme),
     layout.Max(**layout_theme),
+    layout.MonadWide(ratio=0.75, **layout_theme),
     layout.MonadTall(ratio=0.65, **layout_theme),
     layout.Floating(**layout_theme),
     # Try more layouts by unleashing below layouts.
