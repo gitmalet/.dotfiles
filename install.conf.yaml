@@ -3,6 +3,8 @@
         relink: true
         create: true
 
+- shell:
+  - git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.emacs.d || true
 
 - clean: ['~']
 
@@ -17,6 +19,10 @@
     ~/.config/nvim:
       glob: true
       path: config/nvim/*
+      relink: true
+    ~/.doom.d:
+      glob: true
+      path: doom.d/*
       relink: true
     ~/.spacemacs:
     ~/.tmux.conf:
