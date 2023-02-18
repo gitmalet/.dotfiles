@@ -56,10 +56,10 @@ zstyle ':prompt:grml:*:items:path' post '%f'
 [ -f ~/.zsh/zsh-defer/zsh-defer.plugin.zsh ] \
     && source ~/.zsh/zsh-defer/zsh-defer.plugin.zsh 
 
-# fzf Completion
-[ -d /usr/share/fzf ] \
-    && zsh-defer source /usr/share/fzf/key-bindings.zsh \
-    && zsh-defer source /usr/share/fzf/completion.zsh
+# skim Completion
+[ -d /usr/share/skim ] \
+    && zsh-defer source /usr/share/skim/key-bindings.zsh \
+    && zsh-defer source /usr/share/skim/completion.zsh
 
 # zsh-autosuggestions
 [ -f ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ] \

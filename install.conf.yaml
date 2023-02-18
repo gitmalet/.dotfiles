@@ -4,6 +4,7 @@
         create: true
 
 - shell:
+  - git submodule update --init --recursive
   - git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.emacs.d || true
 
 - clean: ['~']
