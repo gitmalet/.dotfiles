@@ -8,7 +8,7 @@
 set $mod Mod4
 
 set $term alacritty
-set $menu bemenu-run
+set $menu rofi -show run -sort
 set $browser firefox
 set $font pango:SauceCodePro Nerd Font Mono
 font $font 12
@@ -30,7 +30,7 @@ input "type:keyboard" {
 bindsym $mod+Return exec $term
 bindsym $mod+d exec $menu
 bindsym $mod+b exec $browser
-bindsym $mod+q exec swaylock
+bindsym $mod+q exec physlock -s
 bindsym $mod+Shift+q kill
 floating_modifier $mod normal
 bindsym $mod+Shift+c reload
@@ -62,7 +62,7 @@ bindsym $mod+Shift+$right move right
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+Right mo,e right
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -118,9 +118,10 @@ bindsym $mod+i scratchpad show
 
 ### Output configuration
 output eDP-1 resolution 1920x1080 position 0,0
-output DP-4 resolution 2560x1440 position 1920,0
-output HDMI-A-2 resolution 3840x2160 position 4480,0
-output HDMI-A-2 scale 2
+output DP-6 enable resolution 2560x1440 position 1920,0
+output DP-7 disable
+output HDMI-A-1 resolution 3840x2160 position 4480,0
+output HDMI-A-1 scale 2
 
 # output HDMI-A-2 resolution 1920x1080 position 1920,0
 # font $font 10
