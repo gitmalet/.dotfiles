@@ -30,5 +30,6 @@
     ~/.radare2rc:
     ~/.gdbinit:
     ~/.xinitrc:
+    ~/.xprofile:
     ~/.proxychains/proxychains.conf:
     ~/.Xresources:

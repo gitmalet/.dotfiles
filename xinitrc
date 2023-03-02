@@ -2,6 +2,7 @@
 
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
+userprofile=$HOME/.xprofile
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
@@ -32,16 +33,9 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-setxkbmap -option caps:escape
-setxkbmap -option compose:ralt
-setxkbmap -variaunt euro
-
-# Open X for containers
-CONTAINER_XAUTH=/tmp/.Xcontainerauthority
-xauth nextract - "$DISPLAY" | sed -e 's/^..../ffff/' | xauth -f "$CONTAINER_XAUTH" nmerge -
-chmod 777 $CONTAINER_XAUTH
-
-autorandr -c
+if [ -f "$userprofile" ]; then
+  [ -x "$userprofile" ] && . "$userprofile"
+fi
 
 # exec i3
 exec qtile start
