@@ -3,8 +3,16 @@
 export PATH="${HOME}/.local/bin:${HOME}/.cargo/bin/:${PATH}"
 export HISTSIZE=50000
 
-# OCaml
-[[ ! -r ${HOME}/.opam/opam-init/init.zsh ]] || source ${HOME}/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+# Rust
+[ -f /usr/bin/ruby ] \
+    && export CARGO_HOME="${HOME}/.cargo" \
+    && export PATH="${PATH}:${CARGO_HOME}/bin"
+
+# Ruby
+[ -f /usr/bin/ruby ] \
+    && export GEM_HOME="$(ruby -e 'puts Gem.user_dir')" \
+    && export PATH="${PATH}:${GEM_HOME}/bin"
+
 
 # Vi-Mode
 bindkey -v
