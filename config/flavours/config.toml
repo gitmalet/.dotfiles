@@ -47,6 +47,13 @@ hook = "i3-msg restart || swaymsg restart"
 light = false
 
 [[item]]
+file = "~/.dotfiles/config/i3status/config"
+template = "i3status"
+hook = "i3-msg restart || swaymsg restart"
+# i3/sway restart might mess up stuff, so it's marked as not-light
+light = false
+
+[[item]]
 file = "~/.dotfiles/config/dunst/dunstrc"
 template = "dunst"
 hook = "killall dunst"
