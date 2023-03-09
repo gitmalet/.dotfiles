@@ -2,6 +2,16 @@
 # see "man i3status" for documentation.
 
 # Start flavours
+## Base16 Atelier Cave
+# Author: Bram de Haan (http://atelierbramdehaan.nl)
+#
+# You can use these variables anywhere in the i3status configuration file.
+
+general {
+       color_good = "#2a9292"
+       color_bad = "#be4678"
+       color_degraded = "#a06e3b"
+}
 # End flavours
 # general {
 #         colors = true
