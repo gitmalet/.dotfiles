@@ -15,7 +15,7 @@ set $right l
 # Your preferred terminal emulator
 set $term alacritty
 # Your preferred application launcher
-set $menu dmenu_run
+set $menu rofi -show run -sort
 # Your preferred browser
 set $browser firefox
 # Your font
@@ -218,11 +218,9 @@ client.placeholder      $base00 $base00 $base05 $base00 $base00
 client.background       $base07
 
 # Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
 
 bar {
-    status_command i3status-rs
+    status_command i3status
     position top
     # font $font 11, Symbols Nerd Font 11
     font $font 11
@@ -239,4 +237,3 @@ bar {
         binding_mode        $base00 $base0A $base00
     }
 }
-
