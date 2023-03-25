@@ -28,7 +28,6 @@ order += "cpu_temperature 3"
 order += "cpu_temperature 4"
 order += "cpu_temperature 5"
 order += "disk /"
-order += "load"
 order += "memory"
 order += "tztime local"
 
@@ -63,10 +62,6 @@ cpu_temperature 3 {
 
 cpu_temperature 4 {
         format = "%degrees°C"
-}
-
-load {
-        format = "Load: %1min"
 }
 
 memory {
