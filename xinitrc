@@ -37,5 +37,5 @@ if [ -f "$userprofile" ]; then
   [ -x "$userprofile" ] && . "$userprofile"
 fi
 
-# exec i3
-exec qtile start
+exec i3
+# exec qtile start
