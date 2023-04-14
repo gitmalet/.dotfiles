@@ -4,7 +4,7 @@ export PATH="${HOME}/.local/bin:${HOME}/.cargo/bin/:${PATH}"
 export HISTSIZE=50000
 
 # Rust
-[ -f /usr/bin/ruby ] \
+[ -f /usr/bin/cargo ] \
     && export CARGO_HOME="${HOME}/.cargo" \
     && export PATH="${PATH}:${CARGO_HOME}/bin"
 
