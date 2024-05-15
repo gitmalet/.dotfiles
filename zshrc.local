@@ -1,6 +1,6 @@
 # User configuration
 
-export PATH="${HOME}/.local/bin:${HOME}/.cargo/bin/:${PATH}"
+export PATH="${HOME}/.local/bin:${HOME}/.cargo/bin/:${HOME}/.nix-profile/bin:${PATH}"
 export HISTSIZE=50000
 
 # Rust
@@ -8,19 +8,13 @@ export HISTSIZE=50000
     && export CARGO_HOME="${HOME}/.cargo" \
     && export PATH="${PATH}:${CARGO_HOME}/bin"
 
-# Ruby
-[ -f /usr/bin/ruby ] \
-    && export GEM_HOME="$(ruby -e 'puts Gem.user_dir')" \
-    && export PATH="${PATH}:${GEM_HOME}/bin"
-
-
 # Vi-Mode
 bindkey -v
 export KEYTIMEOUT=1
 
 alias o="rifle"
 alias ipy="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
-alias emacs="emacsclient -nc"
+# alias emacs="emacsclient -nc"
 alias mutt="neomutt"
 
 # BackwardSeach
@@ -81,6 +75,6 @@ zstyle ':prompt:grml:*:items:path' post '%f'
 [ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] \
     && zsh-defer source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-[ -f /usr/bin/starship ] \
-    && prompt off \
-    && eval "$(starship init zsh)"
+#[ -f /usr/bin/starship ] \
+    #&& prompt off \
+    #&& eval "$(starship init zsh)"

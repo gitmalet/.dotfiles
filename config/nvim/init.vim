@@ -46,7 +46,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'jamessan/vim-gnupg'
 
 " Syntax Highlighting
-" Plug 'sheerun/vim-polyglot'
 if has("nvim")
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'nvim-treesitter/nvim-treesitter-textobjects'
@@ -164,8 +163,8 @@ let g:lexical#spelllang = ['en_us','en_gb','de_de', 'de_at']
 
 augroup prose
   au!
-  au FileType help,markdown,mkd,text,tex,plaintex call lexical#init()
-  au FileType help,markdown,mkd,text,tex,plaintex call pencil#init({'wrap': 'soft'})
+  au FileType help,markdown,mkd,text,tex,typst,plaintex call lexical#init()
+  au FileType help,markdown,mkd,text,tex,typst,plaintex call pencil#init({'wrap': 'soft'})
 augroup END
 
 " }}}}
@@ -174,9 +173,6 @@ augroup END
 
 " Treesitter
 runtime treesitter.lua
-
-" Orgmode
-runtime orgmode.lua
 
 " nvim-cmp
 set completeopt=menu,menuone,noselect

@@ -55,12 +55,6 @@ require('lspconfig')['pyright'].setup{
     capabilities = capabilities,
 }
 
-require('lspconfig')['texlab'].setup{
-    on_attach = on_attach,
-    flags = lsp_flags,
-    capabilities = capabilities,
-}
-
 -- require('lspconfig')['leanls'].setup{
 --     on_attach = on_attach,
 --     flags = lsp_flags,

@@ -1,12 +1,18 @@
 #!/bin/sh
 
+setxkbmap -layout us,de
+setxkbmap -variant euro
 setxkbmap -option caps:escape
 setxkbmap -option compose:ralt
+setxkbmap -option grp:alt_shift_toggle
 
 # Open X for containers
-CONTAINER_XAUTH=/tmp/.Xcontainerauthority
-xauth nextract - "$DISPLAY" | sed -e 's/^..../ffff/' | xauth -f "$CONTAINER_XAUTH" nmerge -
-chmod 777 $CONTAINER_XAUTH
+# CONTAINER_XAUTH=/tmp/.Xcontainerauthority
+# xauth nextract - "$DISPLAY" | sed -e 's/^..../ffff/' | xauth -f "$CONTAINER_XAUTH" nmerge -
+# chmod 777 $CONTAINER_XAUTH
 
-sleep 1
-autorandr -c
+# sleep 1
+# autorandr -c
+
+
+

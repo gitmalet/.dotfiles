@@ -3,15 +3,16 @@
 # Copy this to ~/.config/sway/config and edit it to your liking.
 #
 # Read `man 5 sway` for a complete reference.
+#
 
 ### Variables and defaults
 set $mod Mod4
 
 set $term alacritty
-set $menu rofi -show run -sort
+set $menu fuzzel
 set $browser firefox
 set $font pango:SauceCodePro Nerd Font Mono
-font $font 12
+font $font 10
 
 include theme
 
@@ -30,11 +31,14 @@ input "type:keyboard" {
 bindsym $mod+Return exec $term
 bindsym $mod+d exec $menu
 bindsym $mod+b exec $browser
-bindsym $mod+q exec physlock -s
+bindsym $mod+q exec swaylock & sleep 5 && xset s dpms force off
 bindsym $mod+Shift+q kill
 floating_modifier $mod normal
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+e exit
+
+bindsym Print exec --no-startup-id maim "/home/$USER/screenshots/full-$(date -Isecond).png"
+bindsym $mod+Print exec --no-startup-id maim -s "/home/$USER/screenshots/selection-$(date -Isecond).png"
 
 # Navigation
 set $left h
@@ -117,14 +121,9 @@ bindsym $mod+Shift+i move scratchpad
 bindsym $mod+i scratchpad show
 
 ### Output configuration
-output eDP-1 resolution 1920x1080 position 0,0
-output DP-6 enable resolution 2560x1440 position 1920,0
-output DP-7 disable
-output HDMI-A-1 resolution 3840x2160 position 4480,0
-output HDMI-A-1 scale 2
-
-# output HDMI-A-2 resolution 1920x1080 position 1920,0
-# font $font 10
+output eDP-1 mode 1920x1080@60.049Hz pos 0 0
+output DP-6 mode 2560x1440@119.998Hz pos 1920 0 adaptive_sync on
+output HDMI-A-1 mode 3840x2160@60Hz pos 4480 0 scale 1.25
 
 #
 # Resizing containers:
@@ -158,15 +157,14 @@ bindsym $mod+r mode "resize"
 # Read `man 5 sway-bar` for more information about this section.
 
 bar {
-    status_command i3status-rs
+    status_command i3status
     position top
-    font $font 12
+    font $font 11
 
     colors {
         background $base00
         separator  $base01
         statusline $base04
-
         # State             Border  BG      Text
         focused_workspace   $base0E $base0E $base00
         active_workspace    $base03 $base03 $base00
