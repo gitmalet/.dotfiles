@@ -1,65 +1,11 @@
 live_config_reload = true
 working_directory = "None"
+import = [ "~/.config/alacritty/aura.toml" ]
 
 [bell]
 animation = "EaseOutExpo"
 color = "0xffffff"
 duration = 0
-
-[colors]
-draw_bold_text_with_bright_colors = true
-
-[[colors.indexed_colors]]
-color = "0xaa573c"
-index = 16
-
-[[colors.indexed_colors]]
-color = "0xbf40bf"
-index = 17
-
-[[colors.indexed_colors]]
-color = "0x26232a"
-index = 18
-
-[[colors.indexed_colors]]
-color = "0x585260"
-index = 19
-
-[[colors.indexed_colors]]
-color = "0x7e7887"
-index = 20
-
-[[colors.indexed_colors]]
-color = "0xe2dfe7"
-index = 21
-
-[colors.bright]
-black = "0x655f6d"
-blue = "0x576ddb"
-cyan = "0x398bc6"
-green = "0x2a9292"
-magenta = "0x955ae7"
-red = "0xbe4678"
-white = "0xefecf4"
-yellow = "0xa06e3b"
-
-[colors.cursor]
-cursor = "0x8b8792"
-text = "0x19171c"
-
-[colors.normal]
-black = "0x19171c"
-blue = "0x576ddb"
-cyan = "0x398bc6"
-green = "0x2a9292"
-magenta = "0x955ae7"
-red = "0xbe4678"
-white = "0x8b8792"
-yellow = "0xa06e3b"
-
-[colors.primary]
-background = "0x19171c"
-foreground = "0x8b8792"
 
 [cursor]
 style = "Block"
@@ -637,3 +583,4 @@ lines = 0
 [window.padding]
 x = 0
 y = 0
+

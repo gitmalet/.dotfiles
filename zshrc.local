@@ -49,11 +49,6 @@ zstyle ':prompt:grml:left:setup' items rc virtual-env change-root path vcs perce
 zstyle ':prompt:grml:*:items:path' pre '%F{magenta}'
 zstyle ':prompt:grml:*:items:path' post '%f'
 
-
-# Theme
-[ -n "$PS1" ] \
-    && source ~/.zsh/theme.zsh
-
 # zsh-defer
 [ -f ~/.zsh/zsh-defer/zsh-defer.plugin.zsh ] \
     && source ~/.zsh/zsh-defer/zsh-defer.plugin.zsh 

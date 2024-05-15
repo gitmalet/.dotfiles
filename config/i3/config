@@ -193,6 +193,13 @@ default_floating_border none
 #
 # You can use these variables anywhere in the i3 configuration file.
 
+set $c_primary #a277ff
+set $c_secondary #61ffca
+set $c_background #15141b
+set $c_text #edecee
+set $c_comment #6d6d6d
+
+
 set $base00 #19171c
 set $base01 #26232a
 set $base02 #585260
@@ -213,12 +220,17 @@ set $base0F #bf40bf
 
 # Basic color configuration using the Base16 variables for windows and borders.
 # Property Name         Border  BG      Text    Indicator Child Border
-client.focused          $base05 $base0D $base00 $base0D $base0C
-client.focused_inactive $base01 $base01 $base05 $base03 $base01
-client.unfocused        $base01 $base00 $base05 $base01 $base01
-client.urgent           $base08 $base08 $base00 $base08 $base08
-client.placeholder      $base00 $base00 $base05 $base00 $base00
-client.background       $base07
+# class                  # border       # background   # text   # indicator    # child border
+client.focused           $c_primary     $c_background  $c_text  $c_secondary   $c_primary
+client.focused_inactive  $c_comment     $c_background  $c_text  $c_comment     $c_comment
+client.unfocused         $c_background  $c_background  $c_text  $c_background  $c_background
+client.urgent            $c_secondary   $c_background  $c_text  $c_primary     $c_secondary
+# client.focused          $base05 $base0D $base00 $base0D $base0C
+# client.focused_inactive $base01 $base01 $base05 $base03 $base01
+# client.unfocused        $base01 $base00 $base05 $base01 $base01
+# client.urgent           $base08 $base08 $base00 $base08 $base08
+client.placeholder       $c_text $c_text $c_primary $c_text $c_text
+client.background        $c_secondary
 
 # Status Bar:
 
@@ -229,14 +241,24 @@ bar {
     font $font 11
 
     colors {
-        background $base00
-        separator  $base01
-        statusline $base04
+        background $c_background
+        separator $c_background
+        statusline $c_primary
         # State             Border  BG      Text
-        focused_workspace   $base0E $base0E $base00
-        active_workspace    $base03 $base03 $base00
-        inactive_workspace  $base01 $base01 $base05
-        urgent_workspace    $base08 $base08 $base00
-        binding_mode        $base00 $base0A $base00
+        focused_workspace   $c_primary $c_primary $c_background
+        active_workspace    $c_comment $c_comment $c_text
+        inactive_workspace  $c_background $c_background $c_text
+        urgent_workspace    $c_secondary $c_secondary $c_text
+        binding_mode        $c_primary $c_primary $c_background
+
+        # background $base00
+        # separator  $base01
+        # statusline $base04
+        # # State             Border  BG      Text
+        # focused_workspace   $base0E $base0E $base00
+        # active_workspace    $base03 $base03 $base00
+        # inactive_workspace  $base01 $base01 $base05
+        # urgent_workspace    $base08 $base08 $base00
+        # binding_mode        $base00 $base0A $base00
     }
 }

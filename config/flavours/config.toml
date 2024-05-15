@@ -2,23 +2,6 @@
 shell = "zsh -c '{}'"
 
 [[item]]
-file = "~/.dotfiles/zsh/theme.zsh"
-template = "shell"
-rewrite = true
-# No hook :(
-
-[[item]]
-file = "~/.dotfiles/config/nvim/colors/base16.vim"
-template = "vim"
-rewrite = true
-# No hook :(
-
-[[item]]
-file = "~/.dotfiles/config/alacritty/alacritty.yml"
-template = "alacritty"
-subtemplate = "default-256"
-
-[[item]]
 file= "~/.dotfiles/config/zathura/zathurarc"
 template = "zathura"
 

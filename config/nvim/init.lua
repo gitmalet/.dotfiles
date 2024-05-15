@@ -88,7 +88,10 @@ vim.opt.list = true
 vim.opt.inccommand = 'split'
 -- }}}
 -- Looks {{{
-vim.cmd.colorscheme("aura-dark")
+vim.cmd.colorscheme("aura-dark-soft-text")
+-- Access colors present in 256 colorspace
+-- vim.g.base16_colorspace = 256
+
 vim.opt.number = true
 vim.opt.relativenumber = true
 
